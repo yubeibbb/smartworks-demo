@@ -1,0 +1,2360 @@
+{
+  "version": "2026-11-09-v1",
+  "project": "深圳湾综合体项目",
+  "counts": {
+    "待监理确认": 3,
+    "待设计确认": 3,
+    "待施工确认": 2,
+    "已归档": 2,
+    "出具变更": 3,
+    "已退回施工单位": 2,
+    "已转需业主协调": 2
+  },
+  "records": [
+    {
+      "no": "Q&A-DEMO-20261109-001",
+      "contactNo": "LX-DEMO-001",
+      "project": "深圳湾综合体项目",
+      "title": "测试监理确认并流转功能",
+      "discipline": "机电",
+      "owner": "孙工",
+      "date": "2026-10-25",
+      "status": "待监理确认",
+      "step": "supervision",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-25 21:00:00",
+      "location": "地下室 B1 区",
+      "description": "测试监理确认并流转功能：使用监理单位账号填写确认意见，提交后应进入“待设计确认”，设计单位收到待办。",
+      "nextNode": "设计单位 · 赵工（设计单位负责人）",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试监理确认并流转功能：使用监理单位账号填写确认意见，提交后应进入“待设计确认”，设计单位收到待办。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-25 21:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        }
+      ],
+      "handledBy": {},
+      "readBy": {},
+      "unreadFor": {
+        "li": true,
+        "zhao": true,
+        "qian": true,
+        "sun": true
+      },
+      "demoFixture": true
+    },
+    {
+      "no": "Q&A-DEMO-20261109-002",
+      "contactNo": "LX-DEMO-002",
+      "project": "深圳湾综合体项目",
+      "title": "测试监理退回功能",
+      "discipline": "建筑",
+      "owner": "孙工",
+      "date": "2026-10-19",
+      "status": "待监理确认",
+      "step": "supervision",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-19 02:00:00",
+      "location": "首层南入口",
+      "description": "测试监理退回功能：使用监理单位账号填写退回原因，退回施工单位后应显示“已退回施工单位”，并保留处理记录。",
+      "nextNode": "设计单位 · 赵工（设计单位负责人）",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试监理退回功能：使用监理单位账号填写退回原因，退回施工单位后应显示“已退回施工单位”，并保留处理记录。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-19 02:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        }
+      ],
+      "handledBy": {},
+      "readBy": {},
+      "unreadFor": {
+        "li": true,
+        "zhao": true,
+        "qian": true,
+        "sun": true
+      },
+      "demoFixture": true
+    },
+    {
+      "no": "Q&A-DEMO-20261109-003",
+      "contactNo": "LX-DEMO-003",
+      "project": "深圳湾综合体项目",
+      "title": "测试监理确认意见与流转记录功能",
+      "discipline": "结构",
+      "owner": "孙工",
+      "date": "2026-10-25",
+      "status": "待监理确认",
+      "step": "supervision",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-25 07:00:00",
+      "location": "屋面设备区",
+      "description": "测试监理确认意见与流转记录功能：使用监理单位账号填写意见、添加附件并确认，检查意见、附件及下一节点是否正确。",
+      "nextNode": "设计单位 · 赵工（设计单位负责人）",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试监理确认意见与流转记录功能：使用监理单位账号填写意见、添加附件并确认，检查意见、附件及下一节点是否正确。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-25 07:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        }
+      ],
+      "handledBy": {},
+      "readBy": {},
+      "unreadFor": {
+        "li": true,
+        "zhao": true,
+        "qian": true,
+        "sun": true
+      },
+      "demoFixture": true
+    },
+    {
+      "no": "Q&A-DEMO-20261109-004",
+      "contactNo": "LX-DEMO-004",
+      "project": "深圳湾综合体项目",
+      "title": "测试设计确认功能（不涉及变更）",
+      "discipline": "消防",
+      "owner": "孙工",
+      "date": "2026-10-26",
+      "status": "待设计确认",
+      "step": "design",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-26 12:00:00",
+      "location": "地下室 B2 区",
+      "description": "测试设计确认功能（不涉及变更）：使用设计单位账号填写回复并选择“不涉及变更”，提交后应进入“待施工确认”。",
+      "nextNode": "施工单位 · 孙工（项目负责人）",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试设计确认功能（不涉及变更）：使用设计单位账号填写回复并选择“不涉及变更”，提交后应进入“待施工确认”。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-26 12:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "已核对现场情况，问题属实，请设计单位明确技术处理意见。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-10-26 20:00:00",
+          "nextNode": "设计单位 · 赵工（设计单位负责人）",
+          "attachments": []
+        }
+      ],
+      "handledBy": {
+        "qian": true
+      },
+      "readBy": {
+        "qian": true
+      },
+      "unreadFor": {
+        "li": true,
+        "zhao": true,
+        "sun": true
+      },
+      "demoFixture": true
+    },
+    {
+      "no": "Q&A-DEMO-20261109-005",
+      "contactNo": "LX-DEMO-005",
+      "project": "深圳湾综合体项目",
+      "title": "测试施工退回后的设计再次确认功能",
+      "discipline": "幕墙",
+      "owner": "孙工",
+      "date": "2026-10-21",
+      "status": "待设计确认",
+      "step": "design",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-21 17:00:00",
+      "location": "塔楼东立面",
+      "description": "测试施工退回后的设计再次确认功能：使用设计单位账号补充回复，重新提交施工单位确认，检查往返流转记录是否保留。",
+      "nextNode": "施工单位 · 孙工（项目负责人）",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试施工退回后的设计再次确认功能：使用设计单位账号补充回复，重新提交施工单位确认，检查往返流转记录是否保留。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-21 17:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "已核对现场情况，问题属实，请设计单位明确技术处理意见。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-10-21 21:00:00",
+          "nextNode": "设计单位 · 赵工（设计单位负责人）",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "建议调整局部布置，按附注要求实施。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-10-22 00:00:00",
+          "nextNode": "施工单位 · 孙工（项目负责人）",
+          "attachments": []
+        },
+        {
+          "action": "施工退回设计",
+          "content": "现场复核后仍存在净高冲突，请补充具体尺寸后重新确认。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-22 09:00:00",
+          "nextNode": "设计单位 · 赵工（设计单位负责人）",
+          "attachments": []
+        }
+      ],
+      "handledBy": {
+        "qian": true,
+        "sun": true
+      },
+      "readBy": {
+        "qian": true,
+        "sun": true
+      },
+      "unreadFor": {
+        "li": true,
+        "zhao": true
+      },
+      "demoFixture": true
+    },
+    {
+      "no": "Q&A-DEMO-20261109-006",
+      "contactNo": "LX-DEMO-006",
+      "project": "深圳湾综合体项目",
+      "title": "测试设计确认功能（涉及变更）",
+      "discipline": "建筑",
+      "owner": "孙工",
+      "date": "2026-10-26",
+      "status": "待设计确认",
+      "step": "design",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-26 22:00:00",
+      "location": "三层公共卫生间",
+      "description": "测试设计确认功能（涉及变更）：使用设计单位账号填写回复并选择“涉及变更”，提交后由施工单位确认是否出具变更。",
+      "nextNode": "施工单位 · 孙工（项目负责人）",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试设计确认功能（涉及变更）：使用设计单位账号填写回复并选择“涉及变更”，提交后由施工单位确认是否出具变更。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-26 22:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "已核对现场情况，问题属实，请设计单位明确技术处理意见。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-10-27 06:00:00",
+          "nextNode": "设计单位 · 赵工（设计单位负责人）",
+          "attachments": []
+        }
+      ],
+      "handledBy": {
+        "qian": true
+      },
+      "readBy": {
+        "qian": true
+      },
+      "unreadFor": {
+        "li": true,
+        "zhao": true,
+        "sun": true
+      },
+      "demoFixture": true
+    },
+    {
+      "no": "Q&A-DEMO-20261109-007",
+      "contactNo": "LX-DEMO-007",
+      "project": "深圳湾综合体项目",
+      "title": "测试施工确认归档功能",
+      "discipline": "机电",
+      "owner": "孙工",
+      "date": "2026-10-20",
+      "status": "待施工确认",
+      "step": "construction",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-20 03:00:00",
+      "location": "二层电井",
+      "description": "测试施工确认归档功能：使用施工单位账号确认不涉及变更的设计回复，提交后应显示“已归档”。",
+      "nextNode": "完成归档",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试施工确认归档功能：使用施工单位账号确认不涉及变更的设计回复，提交后应显示“已归档”。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-20 03:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "已核对现场情况，问题属实，请设计单位明确技术处理意见。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-10-20 06:00:00",
+          "nextNode": "设计单位 · 赵工（设计单位负责人）",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "按技术协调意见调整局部节点，并由施工单位复核可实施性。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-10-20 20:00:00",
+          "nextNode": "施工单位 · 孙工（项目负责人）",
+          "attachments": []
+        }
+      ],
+      "handledBy": {
+        "qian": true,
+        "zhao": true
+      },
+      "readBy": {
+        "zhao": true,
+        "qian": true
+      },
+      "unreadFor": {
+        "li": true,
+        "sun": true
+      },
+      "demoFixture": true,
+      "designInvolvesChange": false
+    },
+    {
+      "no": "Q&A-DEMO-20261109-008",
+      "contactNo": "LX-DEMO-008",
+      "project": "深圳湾综合体项目",
+      "title": "测试施工确认并出具变更功能",
+      "discipline": "结构",
+      "owner": "孙工",
+      "date": "2026-10-23",
+      "status": "待施工确认",
+      "step": "construction",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-23 08:00:00",
+      "location": "五层楼梯间",
+      "description": "测试施工确认并出具变更功能：使用施工单位账号确认涉及变更的设计回复，提交后应显示“出具变更”。",
+      "nextNode": "完成归档",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试施工确认并出具变更功能：使用施工单位账号确认涉及变更的设计回复，提交后应显示“出具变更”。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-23 08:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "已核对现场情况，问题属实，请设计单位明确技术处理意见。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-10-23 17:00:00",
+          "nextNode": "设计单位 · 赵工（设计单位负责人）",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "调整涉及原设计内容，需按变更程序出具正式文件。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-10-23 20:00:00",
+          "nextNode": "施工单位 · 孙工（项目负责人）",
+          "attachments": []
+        }
+      ],
+      "handledBy": {
+        "qian": true,
+        "zhao": true
+      },
+      "readBy": {
+        "zhao": true,
+        "qian": true
+      },
+      "unreadFor": {
+        "li": true,
+        "sun": true
+      },
+      "demoFixture": true,
+      "designInvolvesChange": true
+    },
+    {
+      "no": "Q&A-DEMO-20261109-009",
+      "contactNo": "LX-DEMO-009",
+      "project": "深圳湾综合体项目",
+      "title": "测试已归档流程查看功能",
+      "discipline": "消防",
+      "owner": "孙工",
+      "date": "2026-10-24",
+      "status": "已归档",
+      "step": "done",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-24 13:00:00",
+      "location": "地下一层车道",
+      "description": "测试已归档流程查看功能：检查原始问题、设计回复、施工确认及完整流转记录，并确认已结束流程不可继续审批。",
+      "nextNode": "已归档",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试已归档流程查看功能：检查原始问题、设计回复、施工确认及完整流转记录，并确认已结束流程不可继续审批。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-24 13:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "已核对现场情况，问题属实，请设计单位明确技术处理意见。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-10-24 20:00:00",
+          "nextNode": "设计单位 · 赵工（设计单位负责人）",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "按技术协调意见调整局部节点，并由施工单位复核可实施性。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-10-25 06:00:00",
+          "nextNode": "施工单位 · 孙工（项目负责人）",
+          "attachments": []
+        },
+        {
+          "action": "施工确认归档",
+          "content": "现场复核无异议，按设计意见实施并归档。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-25 19:00:00",
+          "nextNode": "归档",
+          "attachments": []
+        }
+      ],
+      "handledBy": {
+        "qian": true,
+        "zhao": true,
+        "sun": true
+      },
+      "readBy": {
+        "zhao": true,
+        "qian": true,
+        "sun": true
+      },
+      "unreadFor": {
+        "li": true
+      },
+      "demoFixture": true,
+      "designInvolvesChange": false
+    },
+    {
+      "no": "Q&A-DEMO-20261109-010",
+      "contactNo": "LX-DEMO-010",
+      "project": "深圳湾综合体项目",
+      "title": "测试归档记录筛选与阅读状态功能",
+      "discipline": "幕墙",
+      "owner": "孙工",
+      "date": "2026-10-22",
+      "status": "已归档",
+      "step": "done",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-22 18:00:00",
+      "location": "办公塔楼西立面",
+      "description": "测试归档记录筛选与阅读状态功能：在“已归档”状态下查找本记录，查看详情后检查当前账号的已读状态。",
+      "nextNode": "已归档",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试归档记录筛选与阅读状态功能：在“已归档”状态下查找本记录，查看详情后检查当前账号的已读状态。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-22 18:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "已核对现场情况，问题属实，请设计单位明确技术处理意见。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-10-23 04:00:00",
+          "nextNode": "设计单位 · 赵工（设计单位负责人）",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "按技术协调意见调整局部节点，并由施工单位复核可实施性。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-10-23 18:00:00",
+          "nextNode": "施工单位 · 孙工（项目负责人）",
+          "attachments": []
+        },
+        {
+          "action": "施工确认归档",
+          "content": "现场复核无异议，按设计意见实施并归档。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-24 08:00:00",
+          "nextNode": "归档",
+          "attachments": []
+        }
+      ],
+      "handledBy": {
+        "qian": true,
+        "zhao": true,
+        "sun": true
+      },
+      "readBy": {
+        "zhao": true,
+        "qian": true,
+        "sun": true
+      },
+      "unreadFor": {
+        "li": true
+      },
+      "demoFixture": true,
+      "designInvolvesChange": false
+    },
+    {
+      "no": "Q&A-DEMO-20261109-011",
+      "contactNo": "LX-DEMO-011",
+      "project": "深圳湾综合体项目",
+      "title": "测试出具变更结果查看功能",
+      "discipline": "机电",
+      "owner": "孙工",
+      "date": "2026-10-24",
+      "status": "出具变更",
+      "step": "changed",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-24 23:00:00",
+      "location": "四层走廊",
+      "description": "测试出具变更结果查看功能：检查设计选择“涉及变更”、施工确认及最终“出具变更”状态是否一致。",
+      "nextNode": "变更管理模块",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试出具变更结果查看功能：检查设计选择“涉及变更”、施工确认及最终“出具变更”状态是否一致。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-24 23:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "已核对现场情况，问题属实，请设计单位明确技术处理意见。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-10-25 10:00:00",
+          "nextNode": "设计单位 · 赵工（设计单位负责人）",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "调整涉及原设计内容，需按变更程序出具正式文件。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-10-25 20:00:00",
+          "nextNode": "施工单位 · 孙工（项目负责人）",
+          "attachments": []
+        },
+        {
+          "action": "施工确认归档",
+          "content": "确认需出具变更，按变更程序继续办理。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-26 10:00:00",
+          "nextNode": "变更管理模块",
+          "attachments": []
+        }
+      ],
+      "handledBy": {
+        "qian": true,
+        "zhao": true,
+        "sun": true
+      },
+      "readBy": {
+        "zhao": true,
+        "qian": true,
+        "sun": true
+      },
+      "unreadFor": {
+        "li": true
+      },
+      "demoFixture": true,
+      "designInvolvesChange": true,
+      "relatedItem": {
+        "type": "变更事项",
+        "name": "空调冷凝水管排放路径调整",
+        "time": "2026-10-26 10:00:00"
+      }
+    },
+    {
+      "no": "Q&A-DEMO-20261109-012",
+      "contactNo": "LX-DEMO-012",
+      "project": "深圳湾综合体项目",
+      "title": "测试变更关联资源功能",
+      "discipline": "建筑",
+      "owner": "孙工",
+      "date": "2026-10-28",
+      "status": "出具变更",
+      "step": "changed",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-28 04:00:00",
+      "location": "首层大堂",
+      "description": "测试变更关联资源功能：打开问题单的“相关资源”，检查变更事项与原工程答疑的关联信息。",
+      "nextNode": "变更管理模块",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试变更关联资源功能：打开问题单的“相关资源”，检查变更事项与原工程答疑的关联信息。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-28 04:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "已核对现场情况，问题属实，请设计单位明确技术处理意见。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-10-28 08:00:00",
+          "nextNode": "设计单位 · 赵工（设计单位负责人）",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "调整涉及原设计内容，需按变更程序出具正式文件。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-10-28 14:00:00",
+          "nextNode": "施工单位 · 孙工（项目负责人）",
+          "attachments": []
+        },
+        {
+          "action": "施工确认归档",
+          "content": "确认需出具变更，按变更程序继续办理。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-28 21:00:00",
+          "nextNode": "变更管理模块",
+          "attachments": []
+        }
+      ],
+      "handledBy": {
+        "qian": true,
+        "zhao": true,
+        "sun": true
+      },
+      "readBy": {
+        "zhao": true,
+        "qian": true,
+        "sun": true
+      },
+      "unreadFor": {
+        "li": true
+      },
+      "demoFixture": true,
+      "designInvolvesChange": true,
+      "relatedItem": {
+        "type": "变更事项",
+        "name": "门厅吊顶标高与设备检修口协调",
+        "time": "2026-10-28 21:00:00"
+      }
+    },
+    {
+      "no": "Q&A-DEMO-20261109-013",
+      "contactNo": "LX-DEMO-013",
+      "project": "深圳湾综合体项目",
+      "title": "测试出具变更流程的闭环记录功能",
+      "discipline": "结构",
+      "owner": "孙工",
+      "date": "2026-10-28",
+      "status": "出具变更",
+      "step": "changed",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-28 09:00:00",
+      "location": "地下室后浇带",
+      "description": "测试出具变更流程的闭环记录功能：核对监理、设计、施工的处理意见，以及最终变更结果的查询与展示。",
+      "nextNode": "变更管理模块",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试出具变更流程的闭环记录功能：核对监理、设计、施工的处理意见，以及最终变更结果的查询与展示。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-28 09:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "已核对现场情况，问题属实，请设计单位明确技术处理意见。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-10-28 20:00:00",
+          "nextNode": "设计单位 · 赵工（设计单位负责人）",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "调整涉及原设计内容，需按变更程序出具正式文件。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-10-29 01:00:00",
+          "nextNode": "施工单位 · 孙工（项目负责人）",
+          "attachments": []
+        },
+        {
+          "action": "施工确认归档",
+          "content": "确认需出具变更，按变更程序继续办理。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-29 13:00:00",
+          "nextNode": "变更管理模块",
+          "attachments": []
+        }
+      ],
+      "handledBy": {
+        "qian": true,
+        "zhao": true,
+        "sun": true
+      },
+      "readBy": {
+        "zhao": true,
+        "qian": true,
+        "sun": true
+      },
+      "unreadFor": {
+        "li": true
+      },
+      "demoFixture": true,
+      "designInvolvesChange": true,
+      "relatedItem": {
+        "type": "变更事项",
+        "name": "地下室后浇带支撑拆除条件",
+        "time": "2026-10-29 13:00:00"
+      }
+    },
+    {
+      "no": "Q&A-DEMO-20261109-014",
+      "contactNo": "LX-DEMO-014",
+      "project": "深圳湾综合体项目",
+      "title": "测试监理退回后的重新发起功能",
+      "discipline": "消防",
+      "owner": "孙工",
+      "date": "2026-10-25",
+      "status": "已退回施工单位",
+      "step": "returned",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-25 14:00:00",
+      "location": "地下室水泵房",
+      "description": "测试监理退回后的重新发起功能：使用施工单位账号查看退回原因，复用原问题信息补充资料并重新提交。",
+      "nextNode": "流程已结束",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试监理退回后的重新发起功能：使用施工单位账号查看退回原因，复用原问题信息补充资料并重新提交。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-25 14:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        },
+        {
+          "action": "退回施工单位",
+          "content": "请补充现场照片、尺寸复核和原图索引后重新提疑。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-10-25 19:00:00",
+          "nextNode": "施工单位 · 孙工（项目负责人）",
+          "attachments": []
+        }
+      ],
+      "handledBy": {
+        "qian": true
+      },
+      "readBy": {
+        "qian": true
+      },
+      "unreadFor": {
+        "li": true,
+        "zhao": true,
+        "sun": true
+      },
+      "demoFixture": true,
+      "returnedAt": "2026-10-25 19:00:00",
+      "returnedBy": "监理单位 · 钱工"
+    },
+    {
+      "no": "Q&A-DEMO-20261109-015",
+      "contactNo": "LX-DEMO-015",
+      "project": "深圳湾综合体项目",
+      "title": "测试设计退回后的重新发起功能",
+      "discipline": "幕墙",
+      "owner": "孙工",
+      "date": "2026-10-21",
+      "status": "已退回施工单位",
+      "step": "returned",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-21 19:00:00",
+      "location": "屋面女儿墙",
+      "description": "测试设计退回后的重新发起功能：使用施工单位账号查看设计退回意见，复用原问题发起新流程，检查原单与新单关联。",
+      "nextNode": "流程已结束",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试设计退回后的重新发起功能：使用施工单位账号查看设计退回意见，复用原问题发起新流程，检查原单与新单关联。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-21 19:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "已核对现场情况，问题属实，请设计单位明确技术处理意见。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-10-21 23:00:00",
+          "nextNode": "设计单位 · 赵工（设计单位负责人）",
+          "attachments": []
+        },
+        {
+          "action": "退回施工单位",
+          "content": "补充实测尺寸及影响范围，当前资料不足以确定技术方案。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-10-22 05:00:00",
+          "nextNode": "施工单位 · 孙工（项目负责人）",
+          "attachments": []
+        }
+      ],
+      "handledBy": {
+        "qian": true,
+        "zhao": true
+      },
+      "readBy": {
+        "zhao": true,
+        "qian": true
+      },
+      "unreadFor": {
+        "li": true,
+        "sun": true
+      },
+      "demoFixture": true,
+      "returnedAt": "2026-10-22 05:00:00",
+      "returnedBy": "设计单位 · 赵工"
+    },
+    {
+      "no": "Q&A-DEMO-20261109-016",
+      "contactNo": "LX-DEMO-016",
+      "project": "深圳湾综合体项目",
+      "title": "测试业主协调问题进入会议预约功能",
+      "discipline": "建筑",
+      "owner": "孙工",
+      "date": "2026-10-26",
+      "status": "已转需业主协调",
+      "step": "coordinated",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-26 00:00:00",
+      "location": "车库北区",
+      "description": "测试业主协调问题进入会议预约功能：在“会议协调”中勾选本问题，填写时间地点和参会单位，提交建设单位审核。",
+      "nextNode": "协调事项模块",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试业主协调问题进入会议预约功能：在“会议协调”中勾选本问题，填写时间地点和参会单位，提交建设单位审核。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-26 00:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "已核对现场情况，问题属实，请设计单位明确技术处理意见。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-10-26 09:00:00",
+          "nextNode": "设计单位 · 赵工（设计单位负责人）",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "按技术协调意见调整局部节点，并由施工单位复核可实施性。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-10-26 18:00:00",
+          "nextNode": "施工单位 · 孙工（项目负责人）",
+          "attachments": []
+        },
+        {
+          "action": "转为需业主协调",
+          "content": "设计意见与现场实施条件仍有分歧，需建设单位组织会议协调。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-27 07:00:00",
+          "nextNode": "协调事项模块",
+          "attachments": []
+        }
+      ],
+      "handledBy": {
+        "qian": true,
+        "zhao": true,
+        "sun": true
+      },
+      "readBy": {
+        "zhao": true,
+        "qian": true,
+        "sun": true
+      },
+      "unreadFor": {
+        "li": true
+      },
+      "demoFixture": true,
+      "designInvolvesChange": false,
+      "relatedItem": {
+        "type": "需业主协调事项",
+        "name": "地下车库地坪排水坡向调整",
+        "time": "2026-10-27 07:00:00"
+      }
+    },
+    {
+      "no": "Q&A-DEMO-20261109-017",
+      "contactNo": "LX-DEMO-017",
+      "project": "深圳湾综合体项目",
+      "title": "测试会议协调审核及通知功能",
+      "discipline": "机电",
+      "owner": "孙工",
+      "date": "2026-10-24",
+      "status": "已转需业主协调",
+      "step": "coordinated",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-10-24 05:00:00",
+      "location": "二层防火分区",
+      "description": "测试会议协调审核及通知功能：将本问题关联会议，由建设单位审核发布，检查工作台待读通知及打开后的已读状态。",
+      "nextNode": "协调事项模块",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "测试会议协调审核及通知功能：将本问题关联会议，由建设单位审核发布，检查工作台待读通知及打开后的已读状态。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-24 05:00:00",
+          "nextNode": "监理单位 · 钱工（总监理工程师）",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "已核对现场情况，问题属实，请设计单位明确技术处理意见。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-10-24 08:00:00",
+          "nextNode": "设计单位 · 赵工（设计单位负责人）",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "按技术协调意见调整局部节点，并由施工单位复核可实施性。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-10-24 18:00:00",
+          "nextNode": "施工单位 · 孙工（项目负责人）",
+          "attachments": []
+        },
+        {
+          "action": "转为需业主协调",
+          "content": "设计意见与现场实施条件仍有分歧，需建设单位组织会议协调。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-10-25 05:00:00",
+          "nextNode": "协调事项模块",
+          "attachments": []
+        }
+      ],
+      "handledBy": {
+        "qian": true,
+        "zhao": true,
+        "sun": true
+      },
+      "readBy": {
+        "zhao": true,
+        "qian": true,
+        "sun": true
+      },
+      "unreadFor": {
+        "li": true
+      },
+      "demoFixture": true,
+      "designInvolvesChange": false,
+      "relatedItem": {
+        "type": "需业主协调事项",
+        "name": "弱电桥架与防火卷帘净距确认",
+        "time": "2026-10-25 05:00:00"
+      }
+    }
+  ],
+  "descriptionRevision": 2,
+  "coordinationRecords": [
+    {
+      "no": "Q&A-DEMO-20261110-018",
+      "contactNo": "LX-DEMO-018",
+      "project": "深圳湾综合体项目",
+      "title": "测试建设单位审核会议预约功能",
+      "description": "由施工单位发起，切换建设单位查看审核待办，可审核发布或退回。",
+      "discipline": "建筑",
+      "owner": "孙工",
+      "date": "2026-11-10",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-11-10 09:00:00",
+      "location": "测试区域 018",
+      "status": "已转需业主协调",
+      "step": "coordinated",
+      "nextNode": "建设单位负责人 · 会议协调",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "由施工单位发起，切换建设单位查看审核待办，可审核发布或退回。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:00:00",
+          "nextNode": "监理单位",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "测试监理确认完成。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-11-10 09:10:00",
+          "nextNode": "设计单位",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "测试设计回复完成，双方仍需协调。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-11-10 09:20:00",
+          "nextNode": "施工单位",
+          "attachments": []
+        },
+        {
+          "action": "转为需业主协调",
+          "content": "测试业主协调后续流程：由施工单位发起，切换建设单位查看审核待办，可审核发布或退回。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:30:00",
+          "nextNode": "建设单位负责人 · 会议协调",
+          "attachments": []
+        }
+      ],
+      "readBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true
+      },
+      "unreadFor": {
+        "li": true
+      },
+      "handledBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true
+      },
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "designInvolvesChange": false
+    },
+    {
+      "no": "Q&A-DEMO-20261110-019",
+      "contactNo": "LX-DEMO-019",
+      "project": "深圳湾综合体项目",
+      "title": "测试设计单位发起会议预约功能",
+      "description": "由设计单位发起，建设单位审核时可以调整参会单位并发布通知。",
+      "discipline": "结构",
+      "owner": "孙工",
+      "date": "2026-11-10",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-11-10 09:00:00",
+      "location": "测试区域 019",
+      "status": "已转需业主协调",
+      "step": "coordinated",
+      "nextNode": "建设单位负责人 · 会议协调",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "由设计单位发起，建设单位审核时可以调整参会单位并发布通知。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:00:00",
+          "nextNode": "监理单位",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "测试监理确认完成。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-11-10 09:10:00",
+          "nextNode": "设计单位",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "测试设计回复完成，双方仍需协调。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-11-10 09:20:00",
+          "nextNode": "施工单位",
+          "attachments": []
+        },
+        {
+          "action": "转为需业主协调",
+          "content": "测试业主协调后续流程：由设计单位发起，建设单位审核时可以调整参会单位并发布通知。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:30:00",
+          "nextNode": "建设单位负责人 · 会议协调",
+          "attachments": []
+        }
+      ],
+      "readBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true
+      },
+      "unreadFor": {
+        "li": true
+      },
+      "handledBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true
+      },
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "designInvolvesChange": false
+    },
+    {
+      "no": "Q&A-DEMO-20261110-020",
+      "contactNo": "LX-DEMO-020",
+      "project": "深圳湾综合体项目",
+      "title": "测试会议通知分发及待读功能",
+      "description": "会议已审核发布，各单位在工作台查看待读会议通知。",
+      "discipline": "机电",
+      "owner": "孙工",
+      "date": "2026-11-10",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-11-10 09:00:00",
+      "location": "测试区域 020",
+      "status": "已转需业主协调",
+      "step": "coordinated",
+      "nextNode": "建设单位负责人 · 会议协调",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "会议已审核发布，各单位在工作台查看待读会议通知。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:00:00",
+          "nextNode": "监理单位",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "测试监理确认完成。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-11-10 09:10:00",
+          "nextNode": "设计单位",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "测试设计回复完成，双方仍需协调。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-11-10 09:20:00",
+          "nextNode": "施工单位",
+          "attachments": []
+        },
+        {
+          "action": "转为需业主协调",
+          "content": "测试业主协调后续流程：会议已审核发布，各单位在工作台查看待读会议通知。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:30:00",
+          "nextNode": "建设单位负责人 · 会议协调",
+          "attachments": []
+        }
+      ],
+      "readBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true
+      },
+      "unreadFor": {
+        "li": true
+      },
+      "handledBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true
+      },
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "designInvolvesChange": false
+    },
+    {
+      "no": "Q&A-DEMO-20261110-021",
+      "contactNo": "LX-DEMO-021",
+      "project": "深圳湾综合体项目",
+      "title": "测试会议通知已读功能",
+      "description": "打开会议通知后，仅当前账号转为已读，其他账号阅读状态保持独立。",
+      "discipline": "建筑",
+      "owner": "孙工",
+      "date": "2026-11-10",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-11-10 09:00:00",
+      "location": "测试区域 021",
+      "status": "已转需业主协调",
+      "step": "coordinated",
+      "nextNode": "建设单位负责人 · 会议协调",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "打开会议通知后，仅当前账号转为已读，其他账号阅读状态保持独立。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:00:00",
+          "nextNode": "监理单位",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "测试监理确认完成。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-11-10 09:10:00",
+          "nextNode": "设计单位",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "测试设计回复完成，双方仍需协调。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-11-10 09:20:00",
+          "nextNode": "施工单位",
+          "attachments": []
+        },
+        {
+          "action": "转为需业主协调",
+          "content": "测试业主协调后续流程：打开会议通知后，仅当前账号转为已读，其他账号阅读状态保持独立。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:30:00",
+          "nextNode": "建设单位负责人 · 会议协调",
+          "attachments": []
+        }
+      ],
+      "readBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true
+      },
+      "unreadFor": {
+        "li": true
+      },
+      "handledBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true
+      },
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "designInvolvesChange": false
+    },
+    {
+      "no": "Q&A-DEMO-20261110-022",
+      "contactNo": "LX-DEMO-022",
+      "project": "深圳湾综合体项目",
+      "title": "测试最新会议通知排序功能",
+      "description": "最新发布的会议通知应出现在工作台事项列表前面，并可查看时间地点。",
+      "discipline": "结构",
+      "owner": "孙工",
+      "date": "2026-11-10",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-11-10 09:00:00",
+      "location": "测试区域 022",
+      "status": "已转需业主协调",
+      "step": "coordinated",
+      "nextNode": "建设单位负责人 · 会议协调",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "最新发布的会议通知应出现在工作台事项列表前面，并可查看时间地点。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:00:00",
+          "nextNode": "监理单位",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "测试监理确认完成。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-11-10 09:10:00",
+          "nextNode": "设计单位",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "测试设计回复完成，双方仍需协调。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-11-10 09:20:00",
+          "nextNode": "施工单位",
+          "attachments": []
+        },
+        {
+          "action": "转为需业主协调",
+          "content": "测试业主协调后续流程：最新发布的会议通知应出现在工作台事项列表前面，并可查看时间地点。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:30:00",
+          "nextNode": "建设单位负责人 · 会议协调",
+          "attachments": []
+        }
+      ],
+      "readBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true
+      },
+      "unreadFor": {
+        "li": true
+      },
+      "handledBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true
+      },
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "designInvolvesChange": false
+    },
+    {
+      "no": "Q&A-DEMO-20261110-023",
+      "contactNo": "LX-DEMO-023",
+      "project": "深圳湾综合体项目",
+      "title": "测试会议预约退回修改功能",
+      "description": "建设单位已退回，施工单位在工作台查看修改预约待办，调整后重新提交。",
+      "discipline": "机电",
+      "owner": "孙工",
+      "date": "2026-11-10",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-11-10 09:00:00",
+      "location": "测试区域 023",
+      "status": "已转需业主协调",
+      "step": "coordinated",
+      "nextNode": "建设单位负责人 · 会议协调",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "建设单位已退回，施工单位在工作台查看修改预约待办，调整后重新提交。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:00:00",
+          "nextNode": "监理单位",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "测试监理确认完成。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-11-10 09:10:00",
+          "nextNode": "设计单位",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "测试设计回复完成，双方仍需协调。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-11-10 09:20:00",
+          "nextNode": "施工单位",
+          "attachments": []
+        },
+        {
+          "action": "转为需业主协调",
+          "content": "测试业主协调后续流程：建设单位已退回，施工单位在工作台查看修改预约待办，调整后重新提交。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:30:00",
+          "nextNode": "建设单位负责人 · 会议协调",
+          "attachments": []
+        }
+      ],
+      "readBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true
+      },
+      "unreadFor": {
+        "li": true
+      },
+      "handledBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true
+      },
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "designInvolvesChange": false
+    },
+    {
+      "no": "Q&A-DEMO-20261110-024",
+      "contactNo": "LX-DEMO-024",
+      "project": "深圳湾综合体项目",
+      "title": "测试监理单位重新提交预约功能",
+      "description": "监理单位收到退回待办，修改地点或参会单位后可重新提交建设单位审核。",
+      "discipline": "建筑",
+      "owner": "孙工",
+      "date": "2026-11-10",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-11-10 09:00:00",
+      "location": "测试区域 024",
+      "status": "已转需业主协调",
+      "step": "coordinated",
+      "nextNode": "建设单位负责人 · 会议协调",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "监理单位收到退回待办，修改地点或参会单位后可重新提交建设单位审核。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:00:00",
+          "nextNode": "监理单位",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "测试监理确认完成。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-11-10 09:10:00",
+          "nextNode": "设计单位",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "测试设计回复完成，双方仍需协调。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-11-10 09:20:00",
+          "nextNode": "施工单位",
+          "attachments": []
+        },
+        {
+          "action": "转为需业主协调",
+          "content": "测试业主协调后续流程：监理单位收到退回待办，修改地点或参会单位后可重新提交建设单位审核。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:30:00",
+          "nextNode": "建设单位负责人 · 会议协调",
+          "attachments": []
+        }
+      ],
+      "readBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true
+      },
+      "unreadFor": {
+        "li": true
+      },
+      "handledBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true
+      },
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "designInvolvesChange": false
+    },
+    {
+      "no": "Q&A-DEMO-20261110-025",
+      "contactNo": "LX-DEMO-025",
+      "project": "深圳湾综合体项目",
+      "title": "测试业主批示直接归档功能",
+      "description": "业主已直接批示，问题归入工程答疑已归档，无需施工单位再次确认。",
+      "discipline": "结构",
+      "owner": "孙工",
+      "date": "2026-11-10",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-11-10 09:00:00",
+      "location": "测试区域 025",
+      "status": "已归档",
+      "step": "done",
+      "nextNode": "已归档（业主批示结案）",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "业主已直接批示，问题归入工程答疑已归档，无需施工单位再次确认。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:00:00",
+          "nextNode": "监理单位",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "测试监理确认完成。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-11-10 09:10:00",
+          "nextNode": "设计单位",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "测试设计回复完成，双方仍需协调。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-11-10 09:20:00",
+          "nextNode": "施工单位",
+          "attachments": []
+        },
+        {
+          "action": "转为需业主协调",
+          "content": "测试业主协调后续流程：业主已直接批示，问题归入工程答疑已归档，无需施工单位再次确认。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:30:00",
+          "nextNode": "建设单位负责人 · 会议协调",
+          "attachments": []
+        },
+        {
+          "action": "建设单位逐项批示（不召开会议）",
+          "content": "测试业主批示：按已明确的协调意见执行，本问题直接归档，无需施工再次确认。",
+          "unit": "建设单位",
+          "user": "李工",
+          "time": "2026-11-10 10:07:10",
+          "nextNode": "已归档（业主批示结案）",
+          "attachments": []
+        }
+      ],
+      "readBy": {
+        "li": true
+      },
+      "unreadFor": {
+        "zhao": true,
+        "qian": true,
+        "sun": true,
+        "yan": true
+      },
+      "handledBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true,
+        "li": true
+      },
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "designInvolvesChange": false,
+      "ownerDirective": {
+        "no": "Q&A-DEMO-20261110-025",
+        "title": "测试业主批示直接归档功能",
+        "opinion": "测试业主批示：按已明确的协调意见执行，本问题直接归档，无需施工再次确认。",
+        "author": "李工",
+        "unit": "建设单位",
+        "time": "2026-11-10T02:07:10.000Z",
+        "meetingId": "MEETING-DEMO-20261110-025"
+      },
+      "ownerInstructions": [
+        {
+          "no": "Q&A-DEMO-20261110-025",
+          "title": "测试业主批示直接归档功能",
+          "opinion": "测试业主批示：按已明确的协调意见执行，本问题直接归档，无需施工再次确认。",
+          "author": "李工",
+          "unit": "建设单位",
+          "time": "2026-11-10T02:07:10.000Z",
+          "meetingId": "MEETING-DEMO-20261110-025"
+        }
+      ]
+    },
+    {
+      "no": "Q&A-DEMO-20261110-026",
+      "contactNo": "LX-DEMO-026",
+      "project": "深圳湾综合体项目",
+      "title": "测试业主批示记录及待阅通知功能",
+      "description": "各单位可查看业主批示待阅通知和完整记录，问题不会再次进入待协调列表。",
+      "discipline": "机电",
+      "owner": "孙工",
+      "date": "2026-11-10",
+      "unit": "施工单位",
+      "initiator": "孙工",
+      "initiatedAt": "2026-11-10 09:00:00",
+      "location": "测试区域 026",
+      "status": "已归档",
+      "step": "done",
+      "nextNode": "已归档（业主批示结案）",
+      "attachments": [],
+      "replies": [
+        {
+          "action": "施工单位发起",
+          "content": "各单位可查看业主批示待阅通知和完整记录，问题不会再次进入待协调列表。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:00:00",
+          "nextNode": "监理单位",
+          "attachments": []
+        },
+        {
+          "action": "监理确认并流转",
+          "content": "测试监理确认完成。",
+          "unit": "监理单位",
+          "user": "钱工",
+          "time": "2026-11-10 09:10:00",
+          "nextNode": "设计单位",
+          "attachments": []
+        },
+        {
+          "action": "设计回复",
+          "content": "测试设计回复完成，双方仍需协调。",
+          "unit": "设计单位",
+          "user": "赵工",
+          "time": "2026-11-10 09:20:00",
+          "nextNode": "施工单位",
+          "attachments": []
+        },
+        {
+          "action": "转为需业主协调",
+          "content": "测试业主协调后续流程：各单位可查看业主批示待阅通知和完整记录，问题不会再次进入待协调列表。",
+          "unit": "施工单位",
+          "user": "孙工",
+          "time": "2026-11-10 09:30:00",
+          "nextNode": "建设单位负责人 · 会议协调",
+          "attachments": []
+        },
+        {
+          "action": "建设单位逐项批示（不召开会议）",
+          "content": "测试业主批示：按已明确的协调意见执行，本问题直接归档，无需施工再次确认。",
+          "unit": "建设单位",
+          "user": "李工",
+          "time": "2026-11-10 10:08:10",
+          "nextNode": "已归档（业主批示结案）",
+          "attachments": []
+        }
+      ],
+      "readBy": {
+        "li": true
+      },
+      "unreadFor": {
+        "zhao": true,
+        "qian": true,
+        "sun": true,
+        "yan": true
+      },
+      "handledBy": {
+        "sun": true,
+        "zhao": true,
+        "qian": true,
+        "li": true
+      },
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "designInvolvesChange": false,
+      "ownerDirective": {
+        "no": "Q&A-DEMO-20261110-026",
+        "title": "测试业主批示记录及待阅通知功能",
+        "opinion": "测试业主批示：按已明确的协调意见执行，本问题直接归档，无需施工再次确认。",
+        "author": "李工",
+        "unit": "建设单位",
+        "time": "2026-11-10T02:08:10.000Z",
+        "meetingId": "MEETING-DEMO-20261110-026"
+      },
+      "ownerInstructions": [
+        {
+          "no": "Q&A-DEMO-20261110-026",
+          "title": "测试业主批示记录及待阅通知功能",
+          "opinion": "测试业主批示：按已明确的协调意见执行，本问题直接归档，无需施工再次确认。",
+          "author": "李工",
+          "unit": "建设单位",
+          "time": "2026-11-10T02:08:10.000Z",
+          "meetingId": "MEETING-DEMO-20261110-026"
+        }
+      ]
+    }
+  ],
+  "meetings": [
+    {
+      "id": "MEETING-DEMO-20261110-018",
+      "no": "HY-DEMO-018",
+      "project": "深圳湾综合体项目",
+      "title": "测试建设单位审核会议预约功能",
+      "description": "由施工单位发起，切换建设单位查看审核待办，可审核发布或退回。",
+      "location": "项目部第一会议室",
+      "start": "2026-11-13T02:00",
+      "status": "pending",
+      "creatorId": "sun",
+      "creatorName": "孙工",
+      "creatorUnit": "施工单位",
+      "createdAt": "2026-11-10T02:00:00.000Z",
+      "issueIds": [
+        "Q&A-DEMO-20261110-018"
+      ],
+      "issueSnapshots": [
+        {
+          "no": "Q&A-DEMO-20261110-018",
+          "contactNo": "LX-DEMO-018",
+          "title": "测试建设单位审核会议预约功能",
+          "description": "由施工单位发起，切换建设单位查看审核待办，可审核发布或退回。",
+          "status": "已转需业主协调",
+          "project": "深圳湾综合体项目",
+          "discipline": "建筑"
+        }
+      ],
+      "attendees": [
+        "建设单位",
+        "设计单位",
+        "监理单位",
+        "施工单位"
+      ],
+      "cc": [],
+      "reviewers": [
+        "li"
+      ],
+      "recipients": [],
+      "readBy": {},
+      "history": [
+        {
+          "action": "发起会议预约",
+          "actor": "孙工",
+          "unit": "施工单位",
+          "time": "2026-11-10T02:00:00.000Z",
+          "note": "由施工单位发起，切换建设单位查看审核待办，可审核发布或退回。"
+        }
+      ],
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "meetingStartOffsetDays": 3
+    },
+    {
+      "id": "MEETING-DEMO-20261110-019",
+      "no": "HY-DEMO-019",
+      "project": "深圳湾综合体项目",
+      "title": "测试设计单位发起会议预约功能",
+      "description": "由设计单位发起，建设单位审核时可以调整参会单位并发布通知。",
+      "location": "项目部第二会议室",
+      "start": "2026-11-14T02:01",
+      "status": "pending",
+      "creatorId": "zhao",
+      "creatorName": "赵工",
+      "creatorUnit": "设计单位",
+      "createdAt": "2026-11-10T02:01:00.000Z",
+      "issueIds": [
+        "Q&A-DEMO-20261110-019"
+      ],
+      "issueSnapshots": [
+        {
+          "no": "Q&A-DEMO-20261110-019",
+          "contactNo": "LX-DEMO-019",
+          "title": "测试设计单位发起会议预约功能",
+          "description": "由设计单位发起，建设单位审核时可以调整参会单位并发布通知。",
+          "status": "已转需业主协调",
+          "project": "深圳湾综合体项目",
+          "discipline": "结构"
+        }
+      ],
+      "attendees": [
+        "建设单位",
+        "设计单位",
+        "监理单位",
+        "施工单位"
+      ],
+      "cc": [],
+      "reviewers": [
+        "li"
+      ],
+      "recipients": [],
+      "readBy": {},
+      "history": [
+        {
+          "action": "发起会议预约",
+          "actor": "赵工",
+          "unit": "设计单位",
+          "time": "2026-11-10T02:01:00.000Z",
+          "note": "由设计单位发起，建设单位审核时可以调整参会单位并发布通知。"
+        }
+      ],
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "meetingStartOffsetDays": 4
+    },
+    {
+      "id": "MEETING-DEMO-20261110-020",
+      "no": "HY-DEMO-020",
+      "project": "深圳湾综合体项目",
+      "title": "测试会议通知分发及待读功能",
+      "description": "会议已审核发布，各单位在工作台查看待读会议通知。",
+      "location": "项目部第一会议室",
+      "start": "2026-11-15T02:02",
+      "status": "published",
+      "creatorId": "sun",
+      "creatorName": "孙工",
+      "creatorUnit": "施工单位",
+      "createdAt": "2026-11-10T02:02:00.000Z",
+      "issueIds": [
+        "Q&A-DEMO-20261110-020"
+      ],
+      "issueSnapshots": [
+        {
+          "no": "Q&A-DEMO-20261110-020",
+          "contactNo": "LX-DEMO-020",
+          "title": "测试会议通知分发及待读功能",
+          "description": "会议已审核发布，各单位在工作台查看待读会议通知。",
+          "status": "已转需业主协调",
+          "project": "深圳湾综合体项目",
+          "discipline": "机电"
+        }
+      ],
+      "attendees": [
+        "建设单位",
+        "设计单位",
+        "监理单位",
+        "施工单位"
+      ],
+      "cc": [],
+      "reviewers": [
+        "li"
+      ],
+      "recipients": [
+        "li",
+        "zhao",
+        "qian",
+        "sun",
+        "yan"
+      ],
+      "readBy": {},
+      "history": [
+        {
+          "action": "发起会议预约",
+          "actor": "孙工",
+          "unit": "施工单位",
+          "time": "2026-11-10T02:02:00.000Z",
+          "note": "会议已审核发布，各单位在工作台查看待读会议通知。"
+        },
+        {
+          "action": "审核通过并发布通知",
+          "actor": "李工",
+          "unit": "建设单位",
+          "time": "2026-11-10T02:02:10.000Z",
+          "note": "测试审核通过，通知各单位按时参会。"
+        }
+      ],
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "meetingStartOffsetDays": 5,
+      "reviewNote": "测试审核通过，通知各单位按时参会。",
+      "reviewer": "李工",
+      "publishedAt": "2026-11-10T02:02:10.000Z"
+    },
+    {
+      "id": "MEETING-DEMO-20261110-021",
+      "no": "HY-DEMO-021",
+      "project": "深圳湾综合体项目",
+      "title": "测试会议通知已读功能",
+      "description": "打开会议通知后，仅当前账号转为已读，其他账号阅读状态保持独立。",
+      "location": "项目部第二会议室",
+      "start": "2026-11-16T02:03",
+      "status": "published",
+      "creatorId": "qian",
+      "creatorName": "钱工",
+      "creatorUnit": "监理单位",
+      "createdAt": "2026-11-10T02:03:00.000Z",
+      "issueIds": [
+        "Q&A-DEMO-20261110-021"
+      ],
+      "issueSnapshots": [
+        {
+          "no": "Q&A-DEMO-20261110-021",
+          "contactNo": "LX-DEMO-021",
+          "title": "测试会议通知已读功能",
+          "description": "打开会议通知后，仅当前账号转为已读，其他账号阅读状态保持独立。",
+          "status": "已转需业主协调",
+          "project": "深圳湾综合体项目",
+          "discipline": "建筑"
+        }
+      ],
+      "attendees": [
+        "建设单位",
+        "设计单位",
+        "监理单位",
+        "施工单位"
+      ],
+      "cc": [],
+      "reviewers": [
+        "li"
+      ],
+      "recipients": [
+        "li",
+        "zhao",
+        "qian",
+        "sun",
+        "yan"
+      ],
+      "readBy": {},
+      "history": [
+        {
+          "action": "发起会议预约",
+          "actor": "钱工",
+          "unit": "监理单位",
+          "time": "2026-11-10T02:03:00.000Z",
+          "note": "打开会议通知后，仅当前账号转为已读，其他账号阅读状态保持独立。"
+        },
+        {
+          "action": "审核通过并发布通知",
+          "actor": "李工",
+          "unit": "建设单位",
+          "time": "2026-11-10T02:03:10.000Z",
+          "note": "测试审核通过，通知各单位按时参会。"
+        }
+      ],
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "meetingStartOffsetDays": 6,
+      "reviewNote": "测试审核通过，通知各单位按时参会。",
+      "reviewer": "李工",
+      "publishedAt": "2026-11-10T02:03:10.000Z"
+    },
+    {
+      "id": "MEETING-DEMO-20261110-022",
+      "no": "HY-DEMO-022",
+      "project": "深圳湾综合体项目",
+      "title": "测试最新会议通知排序功能",
+      "description": "最新发布的会议通知应出现在工作台事项列表前面，并可查看时间地点。",
+      "location": "项目部第一会议室",
+      "start": "2026-11-17T02:04",
+      "status": "published",
+      "creatorId": "zhao",
+      "creatorName": "赵工",
+      "creatorUnit": "设计单位",
+      "createdAt": "2026-11-10T02:04:00.000Z",
+      "issueIds": [
+        "Q&A-DEMO-20261110-022"
+      ],
+      "issueSnapshots": [
+        {
+          "no": "Q&A-DEMO-20261110-022",
+          "contactNo": "LX-DEMO-022",
+          "title": "测试最新会议通知排序功能",
+          "description": "最新发布的会议通知应出现在工作台事项列表前面，并可查看时间地点。",
+          "status": "已转需业主协调",
+          "project": "深圳湾综合体项目",
+          "discipline": "结构"
+        }
+      ],
+      "attendees": [
+        "建设单位",
+        "设计单位",
+        "监理单位",
+        "施工单位"
+      ],
+      "cc": [],
+      "reviewers": [
+        "li"
+      ],
+      "recipients": [
+        "li",
+        "zhao",
+        "qian",
+        "sun",
+        "yan"
+      ],
+      "readBy": {},
+      "history": [
+        {
+          "action": "发起会议预约",
+          "actor": "赵工",
+          "unit": "设计单位",
+          "time": "2026-11-10T02:04:00.000Z",
+          "note": "最新发布的会议通知应出现在工作台事项列表前面，并可查看时间地点。"
+        },
+        {
+          "action": "审核通过并发布通知",
+          "actor": "李工",
+          "unit": "建设单位",
+          "time": "2026-11-10T02:04:10.000Z",
+          "note": "测试审核通过，通知各单位按时参会。"
+        }
+      ],
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "meetingStartOffsetDays": 7,
+      "reviewNote": "测试审核通过，通知各单位按时参会。",
+      "reviewer": "李工",
+      "publishedAt": "2026-11-10T02:04:10.000Z"
+    },
+    {
+      "id": "MEETING-DEMO-20261110-023",
+      "no": "HY-DEMO-023",
+      "project": "深圳湾综合体项目",
+      "title": "测试会议预约退回修改功能",
+      "description": "建设单位已退回，施工单位在工作台查看修改预约待办，调整后重新提交。",
+      "location": "项目部第二会议室",
+      "start": "2026-11-18T02:05",
+      "status": "returned",
+      "creatorId": "sun",
+      "creatorName": "孙工",
+      "creatorUnit": "施工单位",
+      "createdAt": "2026-11-10T02:05:00.000Z",
+      "issueIds": [
+        "Q&A-DEMO-20261110-023"
+      ],
+      "issueSnapshots": [
+        {
+          "no": "Q&A-DEMO-20261110-023",
+          "contactNo": "LX-DEMO-023",
+          "title": "测试会议预约退回修改功能",
+          "description": "建设单位已退回，施工单位在工作台查看修改预约待办，调整后重新提交。",
+          "status": "已转需业主协调",
+          "project": "深圳湾综合体项目",
+          "discipline": "机电"
+        }
+      ],
+      "attendees": [
+        "建设单位",
+        "设计单位",
+        "监理单位",
+        "施工单位"
+      ],
+      "cc": [],
+      "reviewers": [
+        "li"
+      ],
+      "recipients": [],
+      "readBy": {},
+      "history": [
+        {
+          "action": "发起会议预约",
+          "actor": "孙工",
+          "unit": "施工单位",
+          "time": "2026-11-10T02:05:00.000Z",
+          "note": "建设单位已退回，施工单位在工作台查看修改预约待办，调整后重新提交。"
+        },
+        {
+          "action": "退回修改",
+          "actor": "李工",
+          "unit": "建设单位",
+          "time": "2026-11-10T02:05:10.000Z",
+          "note": "测试退回：请补充协调材料，并核对会议地点后重新提交。"
+        }
+      ],
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "meetingStartOffsetDays": 8,
+      "returnReason": "测试退回：请补充协调材料，并核对会议地点后重新提交。"
+    },
+    {
+      "id": "MEETING-DEMO-20261110-024",
+      "no": "HY-DEMO-024",
+      "project": "深圳湾综合体项目",
+      "title": "测试监理单位重新提交预约功能",
+      "description": "监理单位收到退回待办，修改地点或参会单位后可重新提交建设单位审核。",
+      "location": "项目部第一会议室",
+      "start": "2026-11-19T02:06",
+      "status": "returned",
+      "creatorId": "qian",
+      "creatorName": "钱工",
+      "creatorUnit": "监理单位",
+      "createdAt": "2026-11-10T02:06:00.000Z",
+      "issueIds": [
+        "Q&A-DEMO-20261110-024"
+      ],
+      "issueSnapshots": [
+        {
+          "no": "Q&A-DEMO-20261110-024",
+          "contactNo": "LX-DEMO-024",
+          "title": "测试监理单位重新提交预约功能",
+          "description": "监理单位收到退回待办，修改地点或参会单位后可重新提交建设单位审核。",
+          "status": "已转需业主协调",
+          "project": "深圳湾综合体项目",
+          "discipline": "建筑"
+        }
+      ],
+      "attendees": [
+        "建设单位",
+        "设计单位",
+        "监理单位",
+        "施工单位"
+      ],
+      "cc": [],
+      "reviewers": [
+        "li"
+      ],
+      "recipients": [],
+      "readBy": {},
+      "history": [
+        {
+          "action": "发起会议预约",
+          "actor": "钱工",
+          "unit": "监理单位",
+          "time": "2026-11-10T02:06:00.000Z",
+          "note": "监理单位收到退回待办，修改地点或参会单位后可重新提交建设单位审核。"
+        },
+        {
+          "action": "退回修改",
+          "actor": "李工",
+          "unit": "建设单位",
+          "time": "2026-11-10T02:06:10.000Z",
+          "note": "测试退回：请补充协调材料，并核对会议地点后重新提交。"
+        }
+      ],
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "meetingStartOffsetDays": 9,
+      "returnReason": "测试退回：请补充协调材料，并核对会议地点后重新提交。"
+    },
+    {
+      "id": "MEETING-DEMO-20261110-025",
+      "no": "HY-DEMO-025",
+      "project": "深圳湾综合体项目",
+      "title": "测试业主批示直接归档功能",
+      "description": "业主已直接批示，问题归入工程答疑已归档，无需施工单位再次确认。",
+      "location": "项目部第二会议室",
+      "start": "2026-11-20T02:07",
+      "status": "directed",
+      "creatorId": "sun",
+      "creatorName": "孙工",
+      "creatorUnit": "施工单位",
+      "createdAt": "2026-11-10T02:07:00.000Z",
+      "issueIds": [
+        "Q&A-DEMO-20261110-025"
+      ],
+      "issueSnapshots": [
+        {
+          "no": "Q&A-DEMO-20261110-025",
+          "contactNo": "LX-DEMO-025",
+          "title": "测试业主批示直接归档功能",
+          "description": "业主已直接批示，问题归入工程答疑已归档，无需施工单位再次确认。",
+          "status": "已转需业主协调",
+          "project": "深圳湾综合体项目",
+          "discipline": "结构"
+        }
+      ],
+      "attendees": [
+        "建设单位",
+        "设计单位",
+        "监理单位",
+        "施工单位"
+      ],
+      "cc": [],
+      "reviewers": [
+        "li"
+      ],
+      "recipients": [
+        "li",
+        "zhao",
+        "qian",
+        "sun",
+        "yan"
+      ],
+      "readBy": {},
+      "history": [
+        {
+          "action": "发起会议预约",
+          "actor": "孙工",
+          "unit": "施工单位",
+          "time": "2026-11-10T02:07:00.000Z",
+          "note": "业主已直接批示，问题归入工程答疑已归档，无需施工单位再次确认。"
+        },
+        {
+          "action": "逐项批示并通知（不召开会议）",
+          "actor": "李工",
+          "unit": "建设单位",
+          "time": "2026-11-10T02:07:10.000Z",
+          "note": "已对 1 个问题分别作出批示，无需召开会议。"
+        }
+      ],
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "meetingStartOffsetDays": 10,
+      "reviewer": "李工",
+      "publishedAt": "2026-11-10T02:07:10.000Z",
+      "issueInstructions": [
+        {
+          "no": "Q&A-DEMO-20261110-025",
+          "title": "测试业主批示直接归档功能",
+          "opinion": "测试业主批示：按已明确的协调意见执行，本问题直接归档，无需施工再次确认。",
+          "author": "李工",
+          "unit": "建设单位",
+          "time": "2026-11-10T02:07:10.000Z"
+        }
+      ]
+    },
+    {
+      "id": "MEETING-DEMO-20261110-026",
+      "no": "HY-DEMO-026",
+      "project": "深圳湾综合体项目",
+      "title": "测试业主批示记录及待阅通知功能",
+      "description": "各单位可查看业主批示待阅通知和完整记录，问题不会再次进入待协调列表。",
+      "location": "项目部第一会议室",
+      "start": "2026-11-21T02:08",
+      "status": "directed",
+      "creatorId": "zhao",
+      "creatorName": "赵工",
+      "creatorUnit": "设计单位",
+      "createdAt": "2026-11-10T02:08:00.000Z",
+      "issueIds": [
+        "Q&A-DEMO-20261110-026"
+      ],
+      "issueSnapshots": [
+        {
+          "no": "Q&A-DEMO-20261110-026",
+          "contactNo": "LX-DEMO-026",
+          "title": "测试业主批示记录及待阅通知功能",
+          "description": "各单位可查看业主批示待阅通知和完整记录，问题不会再次进入待协调列表。",
+          "status": "已转需业主协调",
+          "project": "深圳湾综合体项目",
+          "discipline": "机电"
+        }
+      ],
+      "attendees": [
+        "建设单位",
+        "设计单位",
+        "监理单位",
+        "施工单位"
+      ],
+      "cc": [],
+      "reviewers": [
+        "li"
+      ],
+      "recipients": [
+        "li",
+        "zhao",
+        "qian",
+        "sun",
+        "yan"
+      ],
+      "readBy": {},
+      "history": [
+        {
+          "action": "发起会议预约",
+          "actor": "赵工",
+          "unit": "设计单位",
+          "time": "2026-11-10T02:08:00.000Z",
+          "note": "各单位可查看业主批示待阅通知和完整记录，问题不会再次进入待协调列表。"
+        },
+        {
+          "action": "逐项批示并通知（不召开会议）",
+          "actor": "李工",
+          "unit": "建设单位",
+          "time": "2026-11-10T02:08:10.000Z",
+          "note": "已对 1 个问题分别作出批示，无需召开会议。"
+        }
+      ],
+      "demoFixture": true,
+      "demoMeetingFixture": true,
+      "meetingStartOffsetDays": 11,
+      "reviewer": "李工",
+      "publishedAt": "2026-11-10T02:08:10.000Z",
+      "issueInstructions": [
+        {
+          "no": "Q&A-DEMO-20261110-026",
+          "title": "测试业主批示记录及待阅通知功能",
+          "opinion": "测试业主批示：按已明确的协调意见执行，本问题直接归档，无需施工再次确认。",
+          "author": "李工",
+          "unit": "建设单位",
+          "time": "2026-11-10T02:08:10.000Z"
+        }
+      ]
+    }
+  ],
+  "meetingRevision": 1,
+  "meetingCounts": {
+    "待建设单位审核": 2,
+    "已发布会议通知": 3,
+    "退回修改": 2,
+    "业主批示归档": 2
+  }
+}

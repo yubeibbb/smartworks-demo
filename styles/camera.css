@@ -1,0 +1,299 @@
+/* ===== 项目看板监控画面：分屏、选择机位、放大预览 ===== */
+.monitor-visual.camera-grid {
+  display: grid;
+  gap: 3px;
+  padding: 3px;
+  background: #17262f;
+  background-image: none !important;
+}
+.monitor-visual.camera-grid[data-count="1"] {
+  grid-template-columns: 1fr;
+}
+.monitor-visual.camera-grid[data-count="2"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.monitor-visual.camera-grid[data-count="3"],
+.monitor-visual.camera-grid[data-count="4"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+.camera-tile {
+  position: relative;
+  display: block;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border: 0;
+  background: #20313a center/cover no-repeat;
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+}
+.camera-tile:before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 21, 27, 0.14),
+    rgba(12, 21, 27, 0.46)
+  );
+  content: "";
+}
+.camera-tile:hover:after {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #fff;
+  content: "";
+}
+.camera-tile.offline {
+  background: #26343c;
+  color: #d7e0e5;
+  cursor: default;
+}
+.camera-tile.offline:before {
+  background: rgba(15, 26, 32, 0.7);
+}
+.camera-tile .tile-name,
+.camera-tile .tile-status,
+.camera-tile .tile-time,
+.camera-tile .offline-copy {
+  position: absolute;
+  z-index: 1;
+}
+.camera-tile .tile-name {
+  top: 10px;
+  left: 10px;
+  padding: 5px 7px;
+  border-radius: 4px;
+  background: rgba(20, 31, 37, 0.72);
+  font-size: 12px;
+}
+.camera-tile .tile-status {
+  top: 11px;
+  right: 10px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.tile-status.online {
+  color: #66d998;
+}
+.tile-status.offline {
+  color: #f5a7a7;
+}
+.camera-tile .tile-time {
+  right: 10px;
+  bottom: 9px;
+  font-size: 10px;
+  text-shadow: 0 1px 2px #111;
+}
+.camera-tile .offline-copy {
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+.camera-tile .offline-copy small {
+  display: block;
+  margin-top: 6px;
+  color: #aebbc2;
+  font-size: 11px;
+  font-weight: 400;
+}
+.monitor-visual.camera-grid[data-count="1"] .camera-tile .tile-name {
+  top: 14px;
+  left: 14px;
+}
+.monitor-visual.camera-grid[data-count="1"] .camera-tile .tile-status {
+  top: 15px;
+  right: 14px;
+}
+.monitor-visual.camera-grid[data-count="1"] .camera-tile .tile-time {
+  right: 14px;
+  bottom: 13px;
+}
+.camera-dialog,
+.camera-fullscreen {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(16, 28, 35, 0.55);
+}
+.camera-dialog.show,
+.camera-fullscreen.show {
+  display: grid;
+}
+.camera-dialog-card {
+  width: min(760px, calc(100vw - 48px));
+  max-height: calc(100vh - 64px);
+  overflow: auto;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 18px 48px rgba(14, 25, 31, 0.28);
+}
+.camera-dialog-header,
+.camera-dialog-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  border-bottom: 1px solid #e5ebee;
+}
+.camera-dialog-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+.camera-dialog-header p {
+  margin: 5px 0 0;
+  color: #829099;
+  font-size: 12px;
+}
+.camera-close {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background: transparent;
+  color: #6d7c85;
+  cursor: pointer;
+  font-size: 24px;
+}
+.camera-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 20px 22px;
+}
+.camera-option {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px;
+  border: 1px solid #dce5e9;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+.camera-option:hover {
+  border-color: #9ec8dc;
+  background: #f7fbfd;
+}
+.camera-option input {
+  width: 16px;
+  height: 16px;
+  accent-color: #d3182c;
+}
+.camera-option b {
+  display: block;
+  color: #30414b;
+  font-size: 14px;
+}
+.camera-option small {
+  display: block;
+  margin-top: 5px;
+  color: #85929a;
+  font-size: 12px;
+}
+.camera-option .camera-state {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 700;
+}
+.camera-state.online {
+  color: #39a867;
+}
+.camera-state.offline {
+  color: #bd7a7a;
+}
+.main-camera-tag {
+  display: inline-block;
+  margin-left: 5px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: #fff0f2;
+  color: #d3182c;
+  font-size: 10px;
+}
+.camera-dialog-footer {
+  border-top: 1px solid #e5ebee;
+  border-bottom: 0;
+}
+.camera-selection-tip {
+  color: #798790;
+  font-size: 12px;
+}
+.camera-selection-tip.error {
+  color: #d3182c;
+}
+.camera-actions {
+  display: flex;
+  gap: 9px;
+}
+.camera-actions button {
+  min-width: 82px;
+  padding: 8px 13px;
+  border-radius: 5px;
+  cursor: pointer;
+  font:
+    13px Arial,
+    "Microsoft YaHei",
+    sans-serif;
+}
+.camera-cancel {
+  border: 1px solid #ccd8dd;
+  background: #fff;
+  color: #5f6e77;
+}
+.camera-confirm {
+  border: 1px solid #d3182c;
+  background: #d3182c;
+  color: #fff;
+}
+.camera-fullscreen-card {
+  position: relative;
+  width: min(1120px, calc(100vw - 56px));
+  max-height: calc(100vh - 56px);
+  padding: 8px;
+  border-radius: 10px;
+  background: #16242b;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.38);
+}
+.camera-fullscreen-card img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 72px);
+  margin: auto;
+  object-fit: contain;
+}
+.camera-fullscreen-name {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 6px 9px;
+  border-radius: 4px;
+  background: rgba(18, 30, 36, 0.76);
+  color: #fff;
+  font-size: 13px;
+}
+.camera-fullscreen-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 31px;
+  height: 31px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(18, 30, 36, 0.76);
+  color: #fff;
+  cursor: pointer;
+  font-size: 22px;
+}
+@media (max-width: 760px) {
+  .camera-options {
+    grid-template-columns: 1fr;
+  }
+  .camera-dialog-card {
+    width: calc(100vw - 24px);
+  }
+}

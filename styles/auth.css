@@ -1,0 +1,471 @@
+/* ===== 全局设计变量：统一管理颜色，后续改主题优先改这里 ===== */
+:root {
+  --blue: #258bd3;
+  --blue-dark: #0874be;
+  --blue-soft: #dff3ff;
+  --ink: #263238;
+  --muted: #7c8790;
+  --line: #cfd7dc;
+  --error: #d9363e;
+  --brand: #a32127;
+}
+/* 所有元素都把 border 和 padding 计入宽高，便于控制布局。 */
+* {
+  box-sizing: border-box;
+}
+body {
+  min-width: 1180px;
+  margin: 0;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+  color: var(--ink);
+  background: #f4f6f7;
+}
+/* ===== 页面三段式骨架：顶部栏、主体区、页脚 ===== */
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 70px 1fr 48px;
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid #e7eaed;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2d3439;
+  font-size: 19px;
+  font-weight: 700;
+}
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  background: var(--brand);
+  color: #fff;
+  font-weight: bold;
+  clip-path: polygon(50% 0, 93% 23%, 93% 73%, 50% 100%, 7% 73%, 7% 23%);
+}
+.nav {
+  display: flex;
+  gap: 34px;
+  color: #737b81;
+  font-size: 14px;
+}
+/* 主展示区：承载登录卡片和背景图片。 */
+.stage {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 56px 14%;
+  background:
+    linear-gradient(90deg, rgba(6, 20, 29, 0.16), rgba(6, 20, 29, 0.02)),
+    url("../网页素材/login-coast.png") center/cover no-repeat;
+  transition: background-image 0.5s ease;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 0 8%;
+  background: #1d252a;
+  color: #bdc5ca;
+  font-size: 12px;
+}
+/* ===== 登录/注册卡片及其通用表单控件 ===== */
+.card {
+  position: relative;
+  z-index: 1;
+  width: 390px;
+  min-height: 540px;
+  padding: 28px 38px 26px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.24);
+}
+.view {
+  display: none;
+}
+.view.active {
+  display: block;
+}
+.title {
+  margin: 0;
+  text-align: center;
+  color: var(--blue);
+  font-size: 20px;
+}
+.title .mark {
+  display: inline-grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  margin-right: 8px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 11px;
+  vertical-align: 2px;
+  clip-path: polygon(50% 0, 93% 23%, 93% 73%, 50% 100%, 7% 73%, 7% 23%);
+}
+.system-name {
+  margin: 15px 0 22px;
+  padding: 11px 0;
+  text-align: center;
+  border-top: 1px solid #edf0f2;
+  border-bottom: 1px solid #edf0f2;
+  font-size: 16px;
+  font-weight: 700;
+}
+label {
+  display: block;
+  margin: 12px 0 6px;
+  color: #4e5961;
+  font-size: 13px;
+}
+input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  outline: 0;
+  font:
+    14px Arial,
+    "Microsoft YaHei",
+    sans-serif;
+  color: var(--ink);
+}
+input:focus {
+  border-color: var(--blue);
+  background: var(--blue-soft);
+  box-shadow: 0 0 0 3px rgba(37, 139, 211, 0.16);
+}
+.field {
+  position: relative;
+}
+.eye {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0;
+}
+.eye::before {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+  width: 18px;
+  height: 11px;
+  border: 2px solid #53616b;
+  border-radius: 50% / 65%;
+  content: "";
+}
+.eye::after {
+  position: absolute;
+  top: 17px;
+  left: 17px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #258bd3;
+  content: "";
+}
+.eye:not(.is-visible) {
+  background: linear-gradient(
+      135deg,
+      transparent 45%,
+      #53616b 46%,
+      #53616b 54%,
+      transparent 55%
+    )
+    center/22px 22px no-repeat;
+}
+.eye.is-visible::before {
+  border-color: #258bd3;
+}
+.eye.is-visible::after {
+  background: #0874be;
+}
+.tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 14px 0 22px;
+  color: #657078;
+}
+.remember,
+.agreement {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.remember input,
+.agreement input {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--blue);
+}
+a {
+  color: var(--blue);
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.primary {
+  width: 100%;
+  height: 44px;
+  border: 1px solid var(--blue);
+  background: var(--blue);
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.primary:hover {
+  background: var(--blue-dark);
+}
+.primary:disabled {
+  border-color: #c5ccd0;
+  background: #c5ccd0;
+  cursor: not-allowed;
+}
+.bottom-link {
+  margin: 18px 0 0;
+  color: #8a949a;
+  text-align: center;
+  font-size: 13px;
+}
+.message {
+  min-height: 18px;
+  margin: 10px 0 0;
+  text-align: center;
+  color: var(--error);
+  font-size: 12px;
+}
+/* 验证码输入区：左侧四个数字框，右侧获取验证码按钮。 */
+.code-row {
+  display: grid;
+  grid-template-columns: 1fr 116px;
+  gap: 8px;
+}
+.digits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.digits input {
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-bottom: 2px solid #aeb7bd;
+  box-shadow: none;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+.digits input:focus {
+  border-bottom-color: var(--blue);
+  background: transparent;
+  box-shadow: none;
+  animation: breathe 2s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%,
+  100% {
+    border-bottom-color: #7ebce7;
+  }
+  50% {
+    border-bottom-color: #0874be;
+    box-shadow: 0 2px 0 rgba(37, 139, 211, 0.28);
+  }
+}
+.code-btn {
+  border: 1px solid #8cc8ef;
+  background: #f7fcff;
+  color: #2587d4;
+  cursor: pointer;
+  font-size: 13px;
+}
+.code-btn:disabled {
+  border-color: #d6dde1;
+  background: #f3f5f6;
+  color: #8b969e;
+  cursor: not-allowed;
+}
+.password-note {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+.agreement {
+  align-items: flex-start;
+  margin: 16px 0;
+  color: #7d878e;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.agreement input {
+  margin-top: 3px;
+}
+.agreement a {
+  color: #6eb3e8;
+}
+.agreement a:hover {
+  color: #2587d4;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.step-tip {
+  margin: 2px 0 18px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+/* ===== 背景图库：左下角三张可点击缩略图 ===== */
+.gallery {
+  position: absolute;
+  z-index: 1;
+  bottom: 22px;
+  left: 8%;
+  width: 274px;
+  color: #fff;
+}
+.gallery-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px 6px;
+  font-size: 12px;
+}
+.preview-stack {
+  position: relative;
+  height: 76px;
+}
+.thumb {
+  position: absolute;
+  top: 0;
+  width: 176px;
+  height: 72px;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease,
+    border-color 0.45s ease;
+}
+.thumb:nth-child(1) {
+  left: 0;
+  z-index: 3;
+}
+.thumb:nth-child(2) {
+  left: 47px;
+  z-index: 2;
+  transform: translateY(4px) scale(0.94);
+  opacity: 0.82;
+}
+.thumb:nth-child(3) {
+  left: 94px;
+  z-index: 1;
+  transform: translateY(8px) scale(0.88);
+  opacity: 0.62;
+}
+.thumb.is-active {
+  z-index: 4;
+  border-color: #fff;
+  transform: translate(0, 0) scale(1);
+  opacity: 1;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* ===== 通用弹窗：服务协议、隐私政策和操作提示共用 ===== */
+.dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  display: none;
+  place-items: center;
+  background: rgba(20, 30, 36, 0.42);
+}
+.dialog.show {
+  display: grid;
+}
+.dialog-panel {
+  width: 420px;
+  background: #fff;
+  box-shadow: 0 16px 46px rgba(0, 0, 0, 0.25);
+}
+.dialog-title {
+  margin: 0;
+  padding: 18px 24px;
+  border-bottom: 1px solid #edf0f2;
+  font-size: 18px;
+}
+.dialog-content {
+  max-height: 280px;
+  overflow: auto;
+  padding: 18px 24px;
+  color: #59656d;
+  font-size: 14px;
+  line-height: 1.85;
+}
+.dialog-tip {
+  margin: 0;
+  padding: 0 24px 13px;
+  color: #8b969e;
+  font-size: 12px;
+}
+.dialog-actions {
+  display: flex;
+  border-top: 1px solid #e9edef;
+}
+.dialog-actions button {
+  flex: 1;
+  padding: 14px;
+  border: 0;
+  background: #fff;
+  color: #4d5962;
+  cursor: pointer;
+  font:
+    14px Arial,
+    "Microsoft YaHei",
+    sans-serif;
+}
+.dialog-actions button + button {
+  border-left: 1px solid #e9edef;
+}
+.dialog-actions .confirm {
+  color: var(--blue);
+}
+.dialog-actions .confirm:disabled {
+  color: #a5afb5;
+  cursor: not-allowed;
+}
+.dialog-actions .return-choice:hover {
+  position: relative;
+  z-index: 1;
+  box-shadow:
+    inset 0 0 0 2px #a9dafa,
+    0 0 8px rgba(45, 142, 219, 0.28);
+}

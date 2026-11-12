@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <script src="static-demo.js"></script>
+    <meta charset="utf-8" />
+    <!-- 告诉浏览器：页面宽度跟随设备宽度，避免移动端被缩放。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 显示在浏览器标签页上的标题。 -->
+    <title>智慧工务管理系统</title>
+    <link rel="stylesheet" href="styles/auth.css" />
+  </head>
+  <body>
+    <!-- ===== 页面可见内容从这里开始 ===== -->
+    <div class="page">
+      <!-- 顶部品牌栏：只用于展示系统名称和定位词。 -->
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">Y</span><span>智慧工务管理系统</span>
+        </div>
+        <nav class="nav">
+          <span>标准化</span><span>数字化</span><span>可追溯</span
+          ><span>可决策</span>
+        </nav>
+      </header>
+      <!-- 主区域：id="stage" 会被 JavaScript 用来切换背景。 -->
+      <main class="stage" id="stage">
+        <!-- 账号相关页面共用同一张卡片；一次只显示一个 .view。 -->
+        <section class="card">
+          <!-- 注册页：验证码、密码和协议均为前端演示校验。 -->
+          <section class="view active">
+            <h1 class="title"><span class="mark">Y</span>注册账号</h1>
+            <div class="system-name">智慧工务管理系统</div>
+            <label for="registerPhone">手机号</label
+            ><input
+              id="registerPhone"
+              inputmode="numeric"
+              maxlength="13"
+              placeholder="请输入手机号"
+            /><label>短信验证码</label>
+            <div class="code-row">
+              <div class="digits" id="registerDigits">
+                <input inputmode="numeric" maxlength="1" /><input
+                  inputmode="numeric"
+                  maxlength="1"
+                /><input inputmode="numeric" maxlength="1" /><input
+                  inputmode="numeric"
+                  maxlength="1"
+                />
+              </div>
+              <button
+                class="code-btn"
+                id="registerCodeButton"
+                type="button"
+                disabled
+              >
+                获取验证码
+              </button>
+            </div>
+            <label for="registerPassword">设置密码</label>
+            <div class="field">
+              <input
+                id="registerPassword"
+                type="password"
+                placeholder="请输入密码"
+              /><button class="eye" type="button" data-eye="registerPassword">
+                ◉
+              </button>
+            </div>
+            <label for="registerConfirm">确认密码</label>
+            <div class="field">
+              <input
+                id="registerConfirm"
+                type="password"
+                placeholder="请再次输入密码"
+              /><button class="eye" type="button" data-eye="registerConfirm">
+                ◉
+              </button>
+            </div>
+            <p class="password-note">
+              8–20位，需同时包含字母、数字和特殊符号，区分大小写，不可包含空格。
+            </p>
+            <label class="agreement"
+              ><input id="agreement" type="checkbox" /><span
+                >我已阅读并同意<a data-protocol="用户服务协议"
+                  >《用户服务协议》</a
+                >和<a data-protocol="隐私政策">《隐私政策》</a></span
+              ></label
+            ><button class="primary" id="registerButton" type="button" disabled>
+              注册并登录
+            </button>
+            <p class="message" id="registerMessage"></p>
+            <p class="bottom-link">已有账号？<a href="index.html">去登录</a></p>
+          </section>
+        </section>
+        <!-- 背景图库：点击缩略图会把对应图片设为主展示区背景。 -->
+        <div class="gallery" aria-label="背景图切换">
+          <div class="gallery-head">
+            <span>当前页</span
+            ><span>图库 · <small id="bgCountdown">30s</small></span>
+          </div>
+          <div class="preview-stack" id="previewStack">
+            <button
+              class="thumb is-active"
+              data-image="网页素材/login-coast.png"
+              type="button"
+            >
+              <img src="网页素材/login-coast.png" alt="滨海背景" /></button
+            ><button
+              class="thumb"
+              data-image="网页素材/login-campus.png"
+              type="button"
+            >
+              <img src="网页素材/login-campus.png" alt="园区背景" /></button
+            ><button
+              class="thumb"
+              data-image="网页素材/login-office.png"
+              type="button"
+            >
+              <img src="网页素材/login-office.png" alt="办公背景" />
+            </button>
+          </div>
+        </div>
+      </main>
+      <!-- 页脚：展示系统归属和联系方式。 -->
+      <footer class="footer">
+        <span>技术支持：智慧工务管理系统</span
+        ><span>服务热线：400-000-0000</span><span>© 2026 版权所有</span>
+      </footer>
+    </div>
+    <!-- 复用弹窗：初始隐藏，由 openDialog 函数打开。 -->
+    <div class="dialog" id="dialog">
+      <section class="dialog-panel">
+        <h2 class="dialog-title" id="dialogTitle">提示</h2>
+        <div class="dialog-content" id="dialogContent"></div>
+        <p class="dialog-tip" id="dialogTip" hidden></p>
+        <div class="dialog-actions" id="dialogActions"></div>
+      </section>
+    </div>
+
+    <script src="scripts/auth-common.js"></script>
+    <script src="scripts/register.js"></script>
+  </body>
+</html>

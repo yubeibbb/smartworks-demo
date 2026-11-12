@@ -1,0 +1,1021 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <script src="static-demo.js"></script>
+    <meta charset="utf-8" />
+    <!-- 让页面在不同设备宽度下按实际宽度显示。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 浏览器标签页标题。 -->
+    <title>智慧工务管理系统</title>
+    <link rel="stylesheet" href="styles/workspace-base.css" />
+    <link rel="stylesheet" href="styles/engineering-qa.css" />
+    <link rel="stylesheet" href="styles/camera.css" />
+    <link rel="stylesheet" href="styles/project-overview.css" />
+    <link rel="stylesheet" href="styles/dashboard-tweaks.css" />
+    <link rel="stylesheet" href="styles/project-assistant.css" />
+    <link rel="stylesheet" href="styles/meeting-coordination.css" />
+    <link rel="stylesheet" href="styles/drawing-change.css" />
+    <link rel="stylesheet" href="styles/admin-workspace.css" />
+  </head>
+  <body>
+    <!-- ===== 页面可见结构：顶部栏、工作台、业务栏以及各类弹窗 ===== -->
+    <!-- 顶部栏：品牌标识与当前用户菜单。 -->
+    <header class="top">
+      <div class="brand">
+        <span class="brand-mark">Y</span><span>智慧工务管理系统</span>
+      </div>
+      <div class="head-tools">
+        <button
+          class="head-avatar"
+          id="userMenuButton"
+          type="button"
+          aria-label="用户菜单"
+          aria-expanded="false"
+        >
+          李
+        </button>
+      </div>
+      <div class="user-popover" id="userPopover">
+        <button type="button" data-account-action="settings">设置</button
+        ><button type="button" data-account-action="ai-settings">AI 设置</button
+        ><button type="button" data-account-action="switch">切换账号</button
+        ><button type="button" data-account-action="logout">退出登录</button>
+      </div>
+    </header>
+    <main class="page">
+      <!-- 顶部概览：当前用户、工作区切换和常用业务快捷入口。 -->
+      <section class="overview" aria-label="个人与常用业务">
+        <article class="block profile">
+          <div class="avatar" id="profileAvatar">李</div>
+          <div>
+            <h2 id="profileName">李工</h2>
+            <p id="profileRole">建设单位 · 项目负责人</p>
+            <div class="project-in-profile">
+              <span class="muted-label">当前项目</span
+              ><button class="project-button" id="projectButton" type="button">
+                <span id="projectName">深圳湾综合体项目</span> <b>⌄</b>
+              </button>
+              <div class="project-menu" id="projectMenu"></div>
+            </div>
+          </div>
+        </article>
+        <nav
+          class="block area-switch"
+          id="areaSwitch"
+          aria-label="工作区域切换"
+        >
+          <button
+            class="area-toggle workbench active"
+            id="workbenchButton"
+            type="button"
+          >
+            工作台</button
+          ><button
+            class="area-toggle business compact"
+            id="businessButton"
+            type="button"
+          >
+            业务栏
+          </button>
+        </nav>
+        <article class="block quick">
+          <h2>常用业务</h2>
+          <div class="quick-list" id="quickList"><button type="button">项目看板</button><button type="button">工程答疑</button><button type="button">会议协调</button><button type="button">图纸变更</button><button class="custom" id="customButton" type="button">自定义</button></div>
+        </article>
+      </section>
+      <!-- 工作台：展示待办事项和外部资讯；切换到业务栏时隐藏。 -->
+      <section class="main" id="workbenchContent">
+        <article class="panel">
+          <header class="panel-head">
+            <h2>事项面板</h2>
+            <nav class="tabs" aria-label="事项筛选">
+              <button class="tab active" data-filter="all" type="button">
+                全部</button
+              ><button class="tab" data-filter="unread" type="button">
+                待读
+                <span class="tab-count" id="matterUnreadCount"></span></button
+              ><button class="tab" data-filter="read" type="button">已读</button
+              ><button class="tab" data-filter="todo" type="button">
+                待办
+                <span class="tab-count" id="matterTodoCount"></span></button
+              ><button class="tab" data-filter="done" type="button">
+                已办
+              </button>
+            </nav>
+          </header>
+          <div class="matters" id="matters" tabindex="0" role="region" aria-label="事项列表">
+            <div class="matter-empty">暂无与当前项目相关的事项</div>
+          </div>
+        </article>
+        <aside class="panel">
+          <header class="panel-head"><h2>重要资讯</h2></header>
+          <div class="notice-list">
+            <article class="notice">
+              <h3>
+                <a
+                  href="https://news.cctv.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span class="news-tag">新闻</span>央视新闻</a
+                >
+              </h3>
+              <time>权威时政、经济与社会热点资讯</time>
+            </article>
+            <article class="notice">
+              <h3>
+                <a
+                  href="https://www.mohurd.gov.cn/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span class="news-tag">行业</span>住房和城乡建设部</a
+                >
+              </h3>
+              <time>工程建设、城乡建设及行业政策资讯</time>
+            </article>
+            <article class="notice">
+              <h3>
+                <a
+                  href="https://www.gov.cn/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span class="news-tag">政策</span>中国政府网</a
+                >
+              </h3>
+              <time>国家政策文件与重要政务信息</time>
+            </article>
+            <article class="notice">
+              <h3>
+                <a
+                  href="https://www.sz.gov.cn/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span class="news-tag">本地</span>深圳市人民政府门户网站</a
+                >
+              </h3>
+              <time>深圳市重要政务与城市建设资讯</time>
+            </article>
+          </div>
+          <div class="notice-foot"></div>
+        </aside>
+      </section>
+      <!-- 业务栏：左侧两级菜单 + 右侧具体业务内容。 -->
+      <section
+        class="business-content"
+        id="businessContent"
+        aria-label="业务栏"
+      >
+        <div class="business-shell">
+          <nav class="primary-menu" aria-label="一级业务菜单">
+            <h2 class="primary-menu-title">业务栏</h2>
+            <button type="button" data-module="项目信息">项目信息</button>
+            <button type="button" data-module="AI助手">AI 助手</button>
+            <button type="button" data-module="报批报建">报批报建</button>
+            <button type="button" data-module="设计管理">设计管理</button>
+            <button type="button" data-module="现场管理">现场管理</button>
+            <button type="button" data-module="招采管理">招采管理</button>
+            <button type="button" data-module="资料管理">资料管理</button>
+            <button type="button" data-module="BIM管理">BIM管理</button>
+          </nav>
+          <nav
+            class="secondary-menu"
+            id="secondaryMenu"
+            aria-label="二级业务菜单"
+          >
+            <p class="empty-sub">请选择业务功能</p>
+          </nav>
+          <!-- 右侧业务内容区：项目看板、工程答疑和后台管理按需显示。 -->
+          <section class="business-stage" aria-label="业务内容区">
+            <div class="business-head">
+              <p>当前页面：项目信息 · 项目看板</p>
+            </div>
+            <div class="open-tabs"></div>
+            <div class="dashboard" id="projectDashboard" hidden>
+              <article class="monitor-card">
+                <header class="monitor-head">
+                  <h2>项目实时监控</h2>
+                  <span class="monitor-meta"
+                    ><i class="live">在线</i
+                    ><span id="cameraNumber">摄像头 01</span></span
+                  >
+                </header>
+                <div class="monitor-visual" id="monitorVisual">
+                  <span class="camera-id" id="cameraLocation"
+                    >深圳湾综合体项目 · 主施工区</span
+                  ><time class="monitor-time" id="monitorTime"></time>
+                </div>
+                <footer class="monitor-foot">
+                  <span>实时施工现场画面</span
+                  ><button id="viewAllMonitors" type="button">
+                    查看全部监控
+                  </button>
+                </footer>
+              </article>
+              <aside class="charts-stack">
+                <article class="chart-card">
+                  <header class="chart-head">
+                    <h2>项目概况</h2>
+                    <span class="monitor-meta" id="projectStatus">建设中</span>
+                  </header>
+                  <div class="chart-body">
+                    <div class="investment-summary">
+                      <span
+                        >项目名称<b id="dashboardProjectName"
+                          >深圳湾综合体项目</b
+                        ></span
+                      >
+                    </div>
+                    <p id="projectInfo" class="chart-copy">
+                      建设单位：深圳市建设发展有限公司<br />项目阶段：主体施工
+                    </p>
+                  </div>
+                </article>
+                <article class="chart-card">
+                  <header class="chart-head"><h2>投资完成情况</h2></header>
+                  <div class="chart-body">
+                    <div class="investment-summary">
+                      <span
+                        >总投资（万元）<b id="investmentTotal">12,000</b></span
+                      ><span
+                        >已完成（万元）<b class="red" id="investmentUsed"
+                          >7,560</b
+                        ></span
+                      ><span>完成率<b id="investmentRate">63%</b></span>
+                    </div>
+                    <div class="bar-chart" id="investmentChart">
+                      <i class="bar" data-month="1月" style="height: 35%"></i
+                      ><i class="bar" data-month="2月" style="height: 48%"></i
+                      ><i class="bar" data-month="3月" style="height: 42%"></i
+                      ><i class="bar" data-month="4月" style="height: 65%"></i
+                      ><i class="bar" data-month="5月" style="height: 56%"></i
+                      ><i class="bar" data-month="6月" style="height: 79%"></i
+                      ><i class="bar" data-month="7月" style="height: 72%"></i
+                      ><i class="bar" data-month="8月" style="height: 91%"></i>
+                    </div>
+                  </div>
+                </article>
+                <article class="chart-card">
+                  <header class="chart-head">
+                    <h2>专业进度</h2>
+                    <span class="monitor-meta" id="progressSchedule"
+                      >按专业 · 计划工期 720 天</span
+                    >
+                  </header>
+                  <div class="discipline-progress" id="disciplineProgress">
+                    <div class="discipline">
+                      <span
+                        class="discipline-bar"
+                        style="
+                          --investment: 100%;
+                          --complete: 76%;
+                          --bar-color: #d3182c;
+                        "
+                        ><b data-rate="76%"></b></span
+                      ><span>土建</span>
+                    </div>
+                    <div class="discipline">
+                      <span
+                        class="discipline-bar"
+                        style="
+                          --investment: 78%;
+                          --complete: 64%;
+                          --bar-color: #e45a69;
+                        "
+                        ><b data-rate="64%"></b></span
+                      ><span>机电</span>
+                    </div>
+                    <div class="discipline">
+                      <span
+                        class="discipline-bar"
+                        style="
+                          --investment: 61%;
+                          --complete: 82%;
+                          --bar-color: #258bd3;
+                        "
+                        ><b data-rate="82%"></b></span
+                      ><span>幕墙</span>
+                    </div>
+                    <div class="discipline">
+                      <span
+                        class="discipline-bar"
+                        style="
+                          --investment: 46%;
+                          --complete: 53%;
+                          --bar-color: #bf7b20;
+                        "
+                        ><b data-rate="53%"></b></span
+                      ><span>装饰</span>
+                    </div>
+                    <div class="discipline">
+                      <span
+                        class="discipline-bar"
+                        style="
+                          --investment: 35%;
+                          --complete: 38%;
+                          --bar-color: #3e9b63;
+                        "
+                        ><b data-rate="38%"></b></span
+                      ><span>园林</span>
+                    </div>
+                  </div>
+                </article>
+              </aside>
+            </div>
+            <div class="qa-stage" id="qaStage" hidden>
+              <div class="qa-board">
+                <div class="qa-toolbar">
+                  <h2>工程答疑</h2>
+                  <button class="qa-new" id="newQaButton" type="button">
+                    + 新增工程答疑
+                  </button>
+                  <div class="qa-search" aria-label="答疑组合检索">
+                    <input
+                      id="qaNoFilter"
+                      type="search"
+                      placeholder="按答疑编号检索"
+                    /><input
+                      id="qaTitleFilter"
+                      type="search"
+                      placeholder="按答疑主题检索"
+                    /><select id="qaDisciplineFilter" aria-label="提疑专业">
+                      <option value="">全部专业</option>
+                      <option>机电</option>
+                      <option>消防</option>
+                      <option>幕墙</option>
+                      <option>建筑</option>
+                      <option>结构</option></select
+                    ><input
+                      id="qaDateFilter"
+                      type="text"
+                      inputmode="numeric"
+                      placeholder="yyyy/mm/dd"
+                      aria-label="提疑日期"
+                    /><select id="qaStatusFilter" aria-label="流程状态">
+                      <option value="">全部状态</option>
+                      <option>待监理确认</option>
+                      <option>待设计确认</option>
+                      <option>待施工确认</option>
+                      <option>已归档</option>
+                      <option>出具变更</option>
+                      <option>已退回施工单位</option>
+                      <option>已转需业主协调</option></select
+                    ><button id="qaResetFilter" type="button">重置</button>
+                  </div>
+                </div>
+                <div class="qa-summary">
+                  <button
+                    class="qa-stat active"
+                    type="button"
+                    data-stat-status=""
+                    title="查看全部工程答疑"
+                  >
+                    <span>全部答疑</span><b id="qaTotal">24</b></button
+                  ><button
+                    class="qa-stat wait"
+                    type="button"
+                    data-stat-status="待监理确认"
+                    title="点击查看待监理确认的问题"
+                  >
+                    <span>待监理确认</span
+                    ><b id="qaSupervisorTotal">6</b></button
+                  ><button
+                    class="qa-stat reply"
+                    type="button"
+                    data-stat-status="待设计确认"
+                    title="点击查看待设计确认的问题"
+                  >
+                    <span>待设计确认</span><b id="qaDesignTotal">8</b></button
+                  ><button
+                    class="qa-stat construction"
+                    type="button"
+                    data-stat-status="待施工确认"
+                    title="点击查看待施工确认的问题"
+                  >
+                    <span>待施工确认</span
+                    ><b id="qaConstructionTotal">0</b></button
+                  ><button
+                    class="qa-stat"
+                    type="button"
+                    data-stat-status="__terminal__"
+                    title="点击查看所有已结束的问题"
+                  >
+                    <span>已完成</span><b id="qaDoneTotal">10</b>
+                  </button>
+                </div>
+                <div class="qa-table-wrap">
+                  <table class="qa-table" aria-label="工程答疑列表">
+                    <thead>
+                      <tr>
+                        <th>
+                          <button
+                            class="qa-sort"
+                            type="button"
+                            data-qa-sort="no"
+                          >
+                            答疑编号 <i class="qa-sort-indicator">↕</i
+                            ><sup class="qa-sort-priority"></sup>
+                          </button>
+                        </th>
+                        <th>
+                          <button
+                            class="qa-sort"
+                            type="button"
+                            data-qa-sort="title"
+                          >
+                            答疑主题 <i class="qa-sort-indicator">↕</i
+                            ><sup class="qa-sort-priority"></sup>
+                          </button>
+                        </th>
+                        <th>
+                          <button
+                            class="qa-sort"
+                            type="button"
+                            data-qa-sort="discipline"
+                          >
+                            提疑专业 <i class="qa-sort-indicator">↕</i
+                            ><sup class="qa-sort-priority"></sup>
+                          </button>
+                        </th>
+                        <th>
+                          <button
+                            class="qa-sort"
+                            type="button"
+                            data-qa-sort="owner"
+                          >
+                            提疑人 <i class="qa-sort-indicator">↕</i
+                            ><sup class="qa-sort-priority"></sup>
+                          </button>
+                        </th>
+                        <th>
+                          <button
+                            class="qa-sort"
+                            type="button"
+                            data-qa-sort="date"
+                          >
+                            提疑日期 <i class="qa-sort-indicator">↓</i
+                            ><sup class="qa-sort-priority"></sup>
+                          </button>
+                        </th>
+                        <th>
+                          <button
+                            class="qa-sort"
+                            type="button"
+                            data-qa-sort="change"
+                          >
+                            是否涉及变更 <i class="qa-sort-indicator">↕</i
+                            ><sup class="qa-sort-priority"></sup>
+                          </button>
+                        </th>
+                        <th>
+                          <button
+                            class="qa-sort"
+                            type="button"
+                            data-qa-sort="status"
+                          >
+                            状态 / 操作 <i class="qa-sort-indicator">↕</i
+                            ><sup class="qa-sort-priority"></sup>
+                          </button>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody id="qaTableBody"></tbody>
+                  </table>
+                </div>
+                <div class="qa-pager" id="qaPager">
+                  <span id="qaCount">共 24 条</span
+                  ><button
+                    type="button"
+                    data-page-action="jump-prev"
+                    aria-label="向前跳 10 页"
+                    title="向前跳 10 页"
+                  >
+                    «</button
+                  ><button
+                    type="button"
+                    data-page-action="prev"
+                    aria-label="上一页"
+                  >
+                    ‹</button
+                  ><span id="qaPageButtons"></span
+                  ><button
+                    type="button"
+                    data-page-action="next"
+                    aria-label="下一页"
+                  >
+                    ›</button
+                  ><button
+                    type="button"
+                    data-page-action="jump-next"
+                    aria-label="向后跳 10 页"
+                    title="向后跳 10 页"
+                  >
+                    »</button
+                  ><span class="page-jump"
+                    >第
+                    <input
+                      id="qaPageInput"
+                      type="number"
+                      min="1"
+                      value="1"
+                      aria-label="跳转页码"
+                    />
+                    / <span id="qaTotalPages">1</span> 页
+                    <button id="qaJumpButton" type="button">跳转</button></span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="qa-admin-stage" id="qaAdminStage" hidden>
+              <div class="qa-admin-board">
+                <header>
+                  <div>
+                    <h2>答疑后台管理</h2>
+                    <p>
+                      查看本机答疑库，按项目区分数据；仅系统管理员可删除已有流程。
+                    </p>
+                  </div>
+                </header>
+                <table class="qa-admin-table">
+                  <thead>
+                    <tr>
+                      <th>所属项目</th>
+                      <th>联系单编号</th>
+                      <th>答疑主题</th>
+                      <th>发起单位 / 发起人</th>
+                      <th>发起时间</th>
+                      <th>状态</th>
+                      <th>操作</th>
+                    </tr>
+                  </thead>
+                  <tbody id="qaAdminTableBody"></tbody>
+                </table>
+                <div class="qa-admin-empty" id="qaAdminEmpty" hidden>
+                  答疑库暂未建立记录
+                </div>
+              </div>
+            </div>
+            <section class="ai-assistant-stage" id="aiAssistantStage" hidden>
+              <header class="ai-page-heading">
+                <div>
+                  <p class="ai-eyebrow">PROJECT KNOWLEDGE ASSISTANT</p>
+                  <h2>项目资料智能检索与问答</h2>
+                  <p id="aiConnectionSummary">模型连接状态读取中；当前尚未接入项目资料检索与引用。</p>
+                </div>
+                <span class="ai-project-chip"><i></i><span id="aiCurrentProject">深圳湾综合体项目</span></span>
+              </header>
+              <div class="ai-chat-layout">
+                <aside class="ai-chat-side">
+                  <div class="ai-history-heading"><h3>历史对话</h3><button id="aiNewChat" type="button">＋ 新对话</button></div>
+                  <div class="ai-history-list" id="aiHistoryList">
+                    <p class="ai-history-empty">暂无历史对话</p>
+                  </div>
+                </aside>
+                <section class="ai-chat-panel" aria-label="项目资料问答">
+                  <div class="ai-chat-toolbar">
+                    <div><strong>资料问答</strong></div>
+                    <div class="ai-toolbar-actions"><button type="button" id="aiModelSettingsButton">模型设置</button><button type="button" id="aiClearChat">新建对话</button></div>
+                  </div>
+                  <div class="ai-conversation" id="aiConversation">
+                    <div class="ai-welcome">
+                      <div class="ai-welcome-mark">AI</div>
+                      <h3>你好，我可以帮你查项目资料</h3>
+                      <p>试着问一个工程约定、技术要求或会议结论。</p>
+                      <div class="ai-examples">
+                        <button type="button" data-ai-example="机电工程的施工范围如何划分？">机电工程的施工范围如何划分？</button>
+                        <button type="button" data-ai-example="最近一次协调会确定了哪些事项？">最近一次协调会确定了哪些事项？</button>
+                        <button type="button" data-ai-example="外墙材料的技术要求是什么？">外墙材料的技术要求是什么？</button>
+                      </div>
+                    </div>
+                  </div>
+                  <form class="ai-composer" id="aiQuestionForm">
+                    <textarea id="aiQuestionInput" rows="2" placeholder="输入你想查询的项目资料问题…" aria-label="项目资料问题"></textarea>
+                    <div class="ai-composer-bottom"><span>回答由 AI 生成；项目资料库接入后，将基于已入库资料作答。</span><button type="submit" id="aiSendButton" disabled>发送 ↑</button></div>
+                  </form>
+                </section>
+              </div>
+              <div class="ai-settings-backdrop" id="aiModelSettingsDialog" hidden>
+                <section class="ai-settings-dialog" role="dialog" aria-modal="true" aria-labelledby="aiModelSettingsTitle">
+                  <header><div><p class="ai-eyebrow">AI CONNECTION</p><h3 id="aiModelSettingsTitle">AI 设置</h3></div><button type="button" id="aiModelSettingsClose" aria-label="关闭 AI 设置">×</button></header>
+                  <p class="ai-settings-intro">连接你自己的 AI。选择服务商，填写 API 地址和密钥，即可用于项目助手。</p>
+                  <div class="ai-connection-layout">
+                    <aside class="ai-provider-sidebar" aria-label="模型服务商">
+                      <p>自定义服务商</p>
+                      <div id="aiSavedProviders"></div>
+                      <button type="button" class="ai-provider-add" id="aiAddProviderButton">＋ 添加供应商</button>
+                    </aside>
+                    <div class="ai-provider-config">
+                      <div class="ai-provider-heading"><h4 id="aiProviderHeading">DeepSeek</h4><span class="ai-provider-state" id="aiProviderState">读取中</span><button type="button" id="aiProviderEnableButton">禁用</button></div>
+                      <label class="ai-settings-field">服务商名称<input id="aiProviderName" maxlength="60" placeholder="例如：我的 DeepSeek" /></label>
+                      <label class="ai-settings-field">服务类型<select id="aiProviderType"><option value="deepseek">DeepSeek</option><option value="bigmodel">智谱 BigModel</option><option value="openai-compatible">自定义（OpenAI 兼容）</option></select></label>
+                      <div class="ai-saved-connection" id="aiSavedConnection"><i></i><div><strong id="aiSavedConnectionTitle"></strong><span id="aiSavedConnectionDetail"></span><span id="aiSavedConnectionKey"></span></div><button type="button" id="aiEditSavedKey">更换密钥</button></div>
+                      <label class="ai-settings-field">Base URL<input id="aiBaseUrlInput" type="url" placeholder="https://api.deepseek.com/v1" autocomplete="url" /></label>
+                      <label class="ai-settings-field">API 格式<select id="aiApiFormatSelect"><option value="chat-completions">Chat Completions（/chat/completions）</option></select></label>
+                      <label class="ai-settings-field">API Key<div class="ai-key-input-row"><input id="aiApiKeyInput" type="password" autocomplete="new-password" placeholder="输入新密钥；已配置时留空表示不更换" /><button type="button" id="aiToggleKeyVisibility" aria-pressed="false">显示</button></div><span class="ai-saved-key-hint" id="aiApiKeySavedHint">尚未读取密钥状态</span></label>
+                      <label class="ai-settings-field"><span>模型</span><div class="ai-model-row"><select id="aiModelInput" aria-label="模型"></select><button type="button" id="aiAddModelButton">＋ 添加模型</button></div><div class="ai-model-tags" id="aiModelTags" hidden></div><span class="ai-model-hint" id="aiModelHint">DeepSeek 模型选项来自官方 API 文档。</span></label>
+                    </div>
+                  </div>
+                  <p class="ai-settings-security">密钥保存在本机，已保存的密钥可留空保留。自定义服务需支持 Chat Completions 接口。</p>
+                  <p class="ai-settings-status" id="aiModelSettingsStatus" role="status">正在读取当前设置…</p>
+                  <footer><button type="button" class="ai-settings-test" id="aiModelTestButton">测试连接</button><button type="button" class="ai-settings-save" id="aiModelSaveButton">保存并使用</button></footer>
+                </section>
+              </div>
+            </section>
+            <section class="material-upload-stage" id="materialUploadStage" hidden>
+              <header class="material-page-heading">
+                <div>
+                  <p class="ai-eyebrow">PROJECT DOCUMENTS</p>
+                  <h2>资料上传</h2>
+                  <p>批量添加项目文件，选择资料大类和事项文件夹后归档。</p>
+                </div>
+                <span class="material-project-chip">当前项目：<b id="materialCurrentProject">深圳湾综合体项目</b></span>
+              </header>
+              <div class="material-workspace">
+                <section class="material-main-card">
+                  <div class="material-card-heading"><div><h3>添加项目资料</h3><p>支持 PDF、Word、PowerPoint；此处为静态演示，不会上传文件到服务器。</p></div><span class="material-step">第 1 步 · 选择资料</span></div>
+                  <label class="material-dropzone" id="materialDropzone" for="materialFileInput">
+                    <input id="materialFileInput" type="file" multiple accept=".pdf,.doc,.docx,.ppt,.pptx" />
+                    <span class="material-upload-icon">↑</span>
+                    <strong>拖拽文件到此处，或点击选择文件</strong>
+                    <small>可一次选择多个文件；建议使用虚构或脱敏资料进行演示</small>
+                  </label>
+                  <div class="material-list-heading">
+                    <h3>待确认资料 <span id="materialPendingCount">0</span></h3>
+                    <div class="material-list-tools">
+                      <button type="button" id="materialNewFolder">＋ 新建文件夹</button>
+                      <button type="button" id="materialClearButton">清空待确认</button>
+                    </div>
+                  </div>
+                  <div class="material-empty" id="materialEmpty">选择文件后，这里会显示文件及分类建议</div>
+                  <div class="material-file-list" id="materialFileList"></div>
+                  <div class="material-actions"><span>确认大类和存放文件夹；也可在此新建多层文件夹。</span><button type="button" id="materialConfirmAll" disabled>确认分类并归档</button></div>
+                </section>
+              </div>
+            </section>
+            <section id="meetingStage" class="meeting-stage" hidden></section>
+            <section id="drawingChangeStage" class="meeting-stage drawing-stage" hidden></section>
+            <section id="adminWorkspaceStage" class="admin-stage" hidden></section>
+            <section class="material-library-stage" id="materialLibraryStage" hidden>
+              <header class="material-page-heading">
+                <div>
+                  <p class="ai-eyebrow">PROJECT DOCUMENT LIBRARY</p>
+                  <h2>资料管理</h2>
+                  <p>在左侧展开文件夹，浏览和查找项目资料。</p>
+                </div>
+                <div class="material-library-actions">
+                  <button class="material-new-folder" type="button" id="librarySettingsButton">⚙ 资料设置</button>
+                  <button class="material-new-folder" type="button" data-new-folder>＋ 新建文件夹</button>
+                  <button class="material-library-upload" type="button" data-open-upload>＋ 资料上传</button>
+                </div>
+              </header>
+              <div class="library-explorer">
+                <aside class="explorer-sidebar" aria-label="资料文件夹">
+                  <div class="explorer-sidebar-title">项目文件</div>
+                  <nav id="libraryCategoryTabs" class="explorer-tree" aria-label="文件夹目录"></nav>
+                  <p class="explorer-sidebar-note">按项目分类归档<br />支持多级文件夹</p>
+                </aside>
+                <div class="explorer-main">
+                  <div class="explorer-addressbar">
+                    <button type="button" id="libraryGoUp" title="返回上一级" aria-label="返回上一级">↑</button>
+                    <nav id="libraryBreadcrumbs" aria-label="当前文件夹路径"></nav>
+                    <label class="library-search"><span>⌕</span><input id="librarySearchInput" type="search" placeholder="搜索当前目录及子目录" aria-label="搜索资料名称" /></label>
+                  </div>
+                  <div class="explorer-list-toolbar"><span id="libraryCurrentTitle">全部资料</span><span>双击文件夹打开 · 单击选中</span></div>
+                  <div class="explorer-table-wrap"><table class="explorer-table"><thead><tr><th><button type="button" id="librarySortName">名称 ↑</button></th><th>文件类型</th><th>日期</th><th>位置</th></tr></thead><tbody id="libraryGroups"></tbody></table><div id="libraryEmpty" class="explorer-empty" hidden><span>▱</span><strong>此文件夹为空</strong><p>上传资料或新建文件夹，开始整理项目文件。</p></div></div>
+                  <footer class="explorer-status"><span id="libraryTotal" role="status">共 0 项</span><span id="librarySelectionStatus">项目资料库 · 演示</span></footer>
+                </div>
+              </div>
+            </section>
+            <section class="material-folder-dialog" id="librarySettingsDialog" role="dialog" aria-modal="true" aria-labelledby="librarySettingsTitle" hidden>
+              <div class="library-settings-card">
+                <header><div><h2 id="librarySettingsTitle">资料设置</h2><p>管理大项和小项，设置名称、层级与编号。</p></div><button type="button" id="librarySettingsClose" aria-label="关闭资料设置">×</button></header>
+                <div class="directory-actions"><button type="button" id="directoryAddCategory">＋ 新增大项</button><button type="button" id="directoryAddChild">＋ 新增小项</button><input id="directorySearch" type="search" aria-label="查找目录" placeholder="查找编号或名称" /><button type="button" id="directoryUndo" disabled>撤销上次操作</button></div>
+                <div class="library-settings-layout">
+                  <nav id="librarySettingsFolders" aria-label="选择要设置的文件夹"></nav>
+                  <form id="librarySettingsForm">
+                    <h3 id="librarySettingsFolderTitle">目录设置</h3>
+                    <div class="directory-code" id="directoryCode"></div>
+                    <label>名称<input id="librarySettingsName" maxlength="40" required /></label>
+                    <label>层级与所属大项<select id="librarySettingsCategory"></select></label>
+                    <label id="directoryParentField">上级目录<select id="librarySettingsParent"></select></label>
+                    <div class="library-settings-path"><span>调整后的路径</span><strong id="librarySettingsPath"></strong></div>
+                    <p class="library-settings-note">大项自动编号 A、B、C；小项按 01、02 编号。移动后按新位置重新编号，子项与资料一起移动。删除目录时，将一并删除全部子目录和文件。</p>
+                    <p id="librarySettingsStatus" role="status"></p>
+                    <footer><button type="button" id="directoryDelete">删除目录及内容</button><button type="button" id="librarySettingsCancel">关闭</button><button type="submit">保存目录设置</button></footer>
+                  </form>
+                </div>
+              </div>
+            </section>
+            <section class="material-folder-dialog" id="materialFolderDialog" role="dialog" aria-modal="true" aria-labelledby="materialFolderTitle" hidden>
+              <form class="material-folder-form" id="materialFolderForm">
+                <header><h2 id="materialFolderTitle">新建文件夹</h2><button type="button" id="materialFolderClose" aria-label="关闭">×</button></header>
+                <label>所属资料类别<select id="materialFolderCategory" required></select></label>
+                <label>上级文件夹<select id="materialFolderParent"></select></label>
+                <label>文件夹名称<input id="materialFolderName" type="text" maxlength="40" placeholder="例如：施工图纸" required /></label>
+                <p>可在大类下新建文件夹，也可选择已有文件夹作为上级，继续建立子文件夹。</p>
+                <footer><button type="button" id="materialFolderCancel">取消</button><button type="submit">创建文件夹</button></footer>
+              </form>
+            </section>
+          </section>
+        </div>
+      </section>
+    </main>
+    <!-- 自定义常用业务弹窗：选择后生成工作台快捷按钮。 -->
+    <section
+      class="shortcut-dialog"
+      id="shortcutDialog"
+      aria-label="自定义常用业务"
+    >
+      <div class="dialog-card">
+        <header class="dialog-header">
+          <h2>自定义常用业务</h2>
+          <button
+            class="dialog-close"
+            id="dialogClose"
+            type="button"
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </header>
+        <p class="dialog-tip">
+          可选择多个已开发的业务，不限制数量；已选业务以红色边框和勾选标识显示。
+        </p>
+        <div class="shortcut-options" id="shortcutOptions"></div>
+        <footer class="dialog-actions">
+          <button class="dialog-cancel" id="dialogCancel" type="button">
+            取消</button
+          ><button class="dialog-confirm" id="dialogConfirm" type="button">
+            确认
+          </button>
+        </footer>
+      </div>
+    </section>
+    <!-- 工程答疑详情弹窗：查看、新增、回复、流转和附件操作都在这里完成。 -->
+    <section class="qa-detail-dialog" id="qaDetailDialog" aria-hidden="true">
+      <div
+        class="qa-detail-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="qaDetailTitle"
+      >
+        <header class="qa-detail-head">
+          <h2 id="qaDetailTitle">新增工程答疑</h2>
+          <button
+            class="qa-detail-close"
+            id="qaDetailClose"
+            type="button"
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </header>
+        <nav class="qa-detail-tabs" aria-label="工程答疑内容">
+          <button class="active" type="button" data-qa-panel="form">
+            答疑表单</button
+          ><button type="button" data-qa-panel="resource">相关资源</button>
+        </nav>
+        <div class="qa-detail-body">
+          <section class="qa-detail-panel" data-qa-content="form">
+            <div class="qa-form-grid">
+              <label class="qa-form-field"
+                ><span>联系单编号</span
+                ><input
+                  id="qaContactNo"
+                  placeholder="请输入联系单编号" /></label
+              ><label class="qa-form-field"
+                ><span>提疑专业</span
+                ><select id="qaFormDiscipline">
+                  <option value="">请选择专业</option>
+                  <option>机电</option>
+                  <option>消防</option>
+                  <option>幕墙</option>
+                  <option>建筑</option>
+                  <option>结构</option>
+                </select></label
+              ><label class="qa-form-field"
+                ><span>所属项目</span
+                ><input id="qaFormProject" readonly /></label
+              ><label class="qa-form-field"
+                ><span>涉及位置</span
+                ><input
+                  id="qaFormLocation"
+                  placeholder="请输入楼栋、楼层或具体位置" /></label
+              ><label class="qa-form-field"
+                ><span>发起单位</span><input id="qaFormUnit" readonly /></label
+              ><label class="qa-form-field"
+                ><span>发起人</span
+                ><input id="qaFormInitiator" readonly /></label
+              ><label class="qa-form-field"
+                ><span>发起时间</span><input id="qaFormTime" readonly /></label
+              ><label class="qa-form-field"
+                ><span>下一步节点</span
+                ><input id="qaFormNextNode" readonly /></label
+              ><label class="qa-form-field full"
+                ><span>答疑主题</span
+                ><input
+                  id="qaFormTitle"
+                  placeholder="请输入需要确认的工程问题主题" /></label
+              ><label class="qa-form-field full"
+                ><span>问题说明</span
+                ><textarea
+                  id="qaFormDescription"
+                  placeholder="请说明现场问题、涉及专业及需要设计确认的事项"
+                ></textarea>
+              </label>
+              <div
+                class="qa-change-choice qa-change-display"
+                id="qaChangeChoice"
+                hidden
+              >
+                <strong>是否涉及变更</strong
+                ><label
+                  ><input type="radio" name="qaChange" value="no" /><span
+                    >否</span
+                  ></label
+                ><label
+                  ><input type="radio" name="qaChange" value="yes" /><span
+                    >是</span
+                  ></label
+                ><em class="qa-change-hint" id="qaChangeHint"></em>
+              </div>
+              <label class="qa-form-field full"
+                ><span>附件资料</span
+                ><input
+                  id="qaAttachmentInput"
+                  type="file"
+                  multiple
+                  accept="image/*,.pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx" />
+                <ul class="qa-file-list" id="qaAttachmentList"></ul
+              ></label>
+            </div>
+            <section class="qa-reply-history" id="qaReplyHistory" hidden>
+              <h3>流转意见</h3>
+              <div id="qaReplyHistoryList"></div>
+            </section>
+            <section class="qa-reply-section" id="qaReplySection" hidden>
+              <h3 id="qaReplyHeading">处理意见</h3>
+              <label class="qa-form-field full"
+                ><span id="qaReplyLabel">处理意见</span
+                ><textarea
+                  id="qaReplyText"
+                  maxlength="200"
+                  placeholder="请输入处理意见，最多 200 字"
+                ></textarea>
+              </label>
+              <p class="qa-reply-counter">
+                <span id="qaReplyCount">0</span> / 200
+              </p>
+              <label class="qa-form-field full"
+                ><span>本次附件</span
+                ><input
+                  id="qaReplyAttachmentInput"
+                  type="file"
+                  multiple
+                  accept="image/*,.pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx" />
+                <ul class="qa-file-list" id="qaReplyAttachmentList"></ul
+              ></label>
+            </section>
+            <p class="qa-form-note" id="qaDetailNote">
+              支持图片及常用办公文件；提交后，答疑将进入“待监理确认”状态，并按工程答疑闭环流程流转。
+            </p>
+          </section>
+          <section class="qa-detail-panel" data-qa-content="resource" hidden>
+            <table class="qa-resource-table">
+              <thead>
+                <tr>
+                  <th>资源类型</th>
+                  <th>资源名称</th>
+                  <th>创建人</th>
+                  <th>创建时间</th>
+                </tr>
+              </thead>
+              <tbody id="qaResourceBody"></tbody>
+            </table>
+            <p class="qa-resource-empty" id="qaResourceEmpty">
+              暂未关联其他事项。
+            </p>
+          </section>
+        </div>
+        <footer class="qa-detail-foot">
+          <button class="qa-detail-cancel" id="qaDetailCancel" type="button">
+            取消</button
+          ><button
+            class="qa-detail-return"
+            id="qaDetailReturn"
+            type="button"
+            hidden
+          >
+            退回施工单位</button
+          ><button
+            class="qa-detail-coordinate"
+            id="qaDetailCoordinate"
+            type="button"
+            hidden
+          >
+            需业主协调</button
+          ><button
+            class="qa-detail-reuse"
+            id="qaDetailReuse"
+            type="button"
+            hidden
+          >
+            复用上次信息重新发起</button
+          ><button
+            class="qa-detail-confirm"
+            id="qaDetailConfirm"
+            type="button"
+            hidden
+          >
+            确认并流转</button
+          ><button class="qa-detail-submit" id="qaDetailSubmit" type="button">
+            提交答疑
+          </button>
+        </footer>
+      </div>
+    </section>
+    <!-- 工程答疑流转前的二次确认弹窗。 -->
+    <section class="qa-flow-confirm" id="qaFlowConfirm" aria-hidden="true">
+      <div
+        class="qa-flow-confirm-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="qaFlowConfirmTitle"
+      >
+        <header><h3 id="qaFlowConfirmTitle">确认流转</h3></header>
+        <p id="qaFlowConfirmText"></p>
+        <footer class="qa-flow-confirm-actions">
+          <button id="qaFlowConfirmCancel" type="button">取消</button
+          ><button id="qaFlowConfirmOk" type="button">确认</button>
+        </footer>
+      </div>
+    </section>
+    <!-- 切换测试账号的弹窗；仅用于本地演示不同单位的权限。 -->
+    <section class="account-dialog" id="accountDialog" aria-hidden="true">
+      <div
+        class="account-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="accountDialogTitle"
+      >
+        <header class="account-head">
+          <h2 id="accountDialogTitle">切换账号</h2>
+          <button
+            class="account-close"
+            id="accountDialogClose"
+            type="button"
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </header>
+        <div class="account-body">
+          <p class="account-tip">
+            选择测试账号后输入密码登录。密码仅在勾选“记住密码”时保存在本机。
+          </p>
+          <div class="account-list" id="accountList"></div>
+          <div class="account-login">
+            <label for="accountPassword">密码</label
+            ><input
+              id="accountPassword"
+              type="password"
+              autocomplete="current-password"
+              placeholder="请输入密码"
+            />
+            <div class="account-options">
+              <label
+                ><input id="rememberPassword" type="checkbox" /> 记住密码</label
+              ><span id="accountSelectedName"></span>
+            </div>
+            <p class="account-error" id="accountError" aria-live="polite"></p>
+          </div>
+        </div>
+        <footer class="account-actions">
+          <button id="accountDialogCancel" type="button">取消</button
+          ><button class="account-submit" id="accountLoginButton" type="button">
+            登录
+          </button>
+        </footer>
+      </div>
+    </section>
+    <script src="scripts/workspace-core.js"></script>
+    <script src="scripts/qa-list.js"></script>
+    <script src="scripts/qa-detail-dialog.js"></script>
+    <script src="scripts/qa-flow.js"></script>
+    <script src="scripts/engineering-qa.js"></script>
+    <script src="scripts/camera.js"></script>
+    <script src="scripts/project-overview.js"></script>
+    <script src="scripts/dashboard-chart.js"></script>
+    <script src="scripts/business-directory.js"></script>
+    <script src="scripts/workspace-tweaks.js"></script>
+    <script src="scripts/workspace-init.js"></script>
+    <script src="scripts/project-assistant.js"></script>
+    <script src="系统顶部账号组件.js"></script>
+    <script src="scripts/meeting-domain.js"></script>
+    <script src="scripts/meeting-coordination.js"></script>
+    <script src="scripts/coordination-issue.js"></script>
+    <script src="scripts/drawing-change-domain.js"></script>
+    <script src="scripts/drawing-change.js"></script>
+    <script src="scripts/demo-admin.js"></script>
+    <script src="scripts/admin-flow-domain.js"></script>
+    <script src="scripts/admin-workspace.js"></script>
+  </body>
+</html>

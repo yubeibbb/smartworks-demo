@@ -1,0 +1,501 @@
+/* ===== 第三部分：工程答疑详情弹窗、附件和后台管理的样式 ===== */
+.account-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(21, 34, 43, 0.38);
+}
+.account-dialog.show {
+  display: flex;
+}
+.account-card {
+  width: 480px;
+  max-width: 100%;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 18px 48px rgba(22, 39, 50, 0.25);
+  overflow: hidden;
+}
+.account-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e7ecef;
+}
+.account-head h2 {
+  margin: 0;
+  color: #243942;
+  font-size: 18px;
+}
+.account-close {
+  border: 0;
+  background: none;
+  color: #677780;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+.account-body {
+  padding: 20px 24px 18px;
+}
+.account-tip {
+  margin: 0 0 12px;
+  color: #7a8991;
+  font-size: 13px;
+}
+.account-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.account-choice {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 56px;
+  padding: 9px 11px;
+  border: 1px solid #dce5e9;
+  border-radius: 8px;
+  background: #fff;
+  color: #4f606a;
+  text-align: left;
+  cursor: pointer;
+}
+.account-choice:hover,
+.account-choice.active {
+  border-color: #d3182c;
+  background: #fff6f7;
+}
+.account-choice .choice-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #faeaed;
+  color: #c0001b;
+  font-weight: 700;
+}
+.account-choice b {
+  display: block;
+  color: #243942;
+  font-size: 14px;
+}
+.account-choice small {
+  display: block;
+  margin-top: 3px;
+  color: #849199;
+  font-size: 11px;
+}
+.account-login {
+  margin-top: 16px;
+}
+.account-login label {
+  display: block;
+  margin-bottom: 7px;
+  color: #566771;
+  font-size: 13px;
+}
+.account-login input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 38px;
+  padding: 0 11px;
+  border: 1px solid #cfdbe0;
+  border-radius: 5px;
+  font:
+    14px Arial,
+    "Microsoft YaHei",
+    sans-serif;
+}
+.account-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  color: #687780;
+  font-size: 13px;
+}
+.account-options label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+.account-error {
+  min-height: 18px;
+  margin: 10px 0 0;
+  color: #d3182c;
+  font-size: 12px;
+}
+.account-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 24px 20px;
+}
+.account-actions button {
+  height: 34px;
+  padding: 0 17px;
+  border: 1px solid #d7e0e4;
+  border-radius: 5px;
+  background: #fff;
+  color: #51616b;
+  cursor: pointer;
+}
+.account-actions .account-submit {
+  border-color: #d3182c;
+  background: #d3182c;
+  color: #fff;
+}
+.qa-stat.construction b {
+  color: #bf7b20;
+}
+.qa-operation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.qa-status {
+  width: 108px;
+  min-width: 108px;
+  text-align: center;
+  white-space: nowrap;
+}
+.qa-action {
+  width: 42px;
+  padding: 0;
+  text-align: left;
+  white-space: nowrap;
+}
+.qa-row-entry {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+.qa-row-entry:hover {
+  color: var(--red);
+  text-decoration: underline;
+}
+.qa-title .qa-row-entry {
+  font-weight: 700;
+}
+.qa-action.advance {
+  margin-left: 0;
+  padding: 4px 8px;
+  border: 1px solid #d3182c;
+  border-radius: 4px;
+  background: #fff;
+  color: #d3182c;
+}
+.qa-action.advance:hover {
+  background: #fff3f4;
+}
+.qa-detail-card .qa-form-field input[readonly],
+.qa-detail-card .qa-form-field input:disabled,
+.qa-detail-card .qa-form-field textarea:disabled,
+.qa-detail-card .qa-form-field select:disabled {
+  background: #f4f7f8;
+  color: #718089;
+  opacity: 1;
+  cursor: not-allowed;
+}
+.qa-detail-card .qa-form-field select:disabled {
+  appearance: none;
+  -webkit-appearance: none;
+}
+.qa-file-picker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 0 10px;
+  border: 1px solid #d7e0e5;
+  border-radius: 5px;
+  background: #fff;
+}
+.qa-file-picker input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.qa-file-picker button {
+  padding: 5px 10px;
+  border: 1px solid #bfcbd1;
+  border-radius: 3px;
+  background: #f8fafb;
+  color: #334650;
+  cursor: pointer;
+  font-size: 12px;
+}
+.qa-file-picker button:hover {
+  border-color: #d3182c;
+  color: #d3182c;
+}
+.qa-file-picker em {
+  overflow: hidden;
+  color: #71808a;
+  font-size: 12px;
+  font-style: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.qa-file-picker[hidden] {
+  display: none;
+}
+.qa-file-list {
+  grid-column: 1/-1;
+  margin: 2px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.qa-file-list:empty {
+  display: none;
+}
+.qa-file-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 7px;
+  padding: 7px 10px;
+  border: 1px solid #e2e9ec;
+  border-radius: 4px;
+  background: #fafcfc;
+  color: #53636d;
+  font-size: 12px;
+}
+.qa-file-list li small {
+  display: block;
+  margin-top: 3px;
+  color: #87949b;
+}
+.qa-file-list button {
+  border: 0;
+  background: none;
+  color: #d3182c;
+  cursor: pointer;
+}
+.qa-file-list .removed {
+  color: #9aa6ac;
+  text-decoration: line-through;
+}
+.qa-admin-stage {
+  padding: 18px;
+}
+.qa-admin-board {
+  min-height: 520px;
+  padding: 22px;
+  border: 1px solid #dce5e8;
+  border-radius: 10px;
+  background: #fff;
+}
+.qa-admin-board header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.qa-admin-board h2 {
+  margin: 0;
+  font-size: 17px;
+}
+.qa-admin-board p {
+  margin: 6px 0 0;
+  color: #7a8991;
+  font-size: 12px;
+}
+.qa-admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.qa-admin-table th,
+.qa-admin-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #e9eef0;
+  text-align: left;
+}
+.qa-admin-table th {
+  background: #f4f7f8;
+  color: #687780;
+  font-weight: 400;
+}
+.qa-admin-delete {
+  border: 0;
+  background: none;
+  color: #d3182c;
+  cursor: pointer;
+}
+.qa-admin-empty {
+  padding: 62px 0;
+  color: #8a969d;
+  text-align: center;
+}
+.qa-reply-section {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px dashed #dbe4e8;
+}
+.qa-reply-section[hidden] {
+  display: none;
+}
+.qa-reply-section h3 {
+  margin: 0 0 14px;
+  color: #263942;
+  font-size: 15px;
+}
+.qa-reply-counter {
+  margin: -2px 0 8px;
+  color: #849199;
+  font-size: 12px;
+  text-align: right;
+}
+.qa-reply-history {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px dashed #dbe4e8;
+}
+.qa-reply-history[hidden] {
+  display: none;
+}
+.qa-reply-history h3 {
+  margin: 0 0 10px;
+  color: #263942;
+  font-size: 15px;
+}
+.qa-reply-history article {
+  margin-top: 9px;
+  padding: 11px 13px;
+  border-radius: 5px;
+  background: #f8fafb;
+  color: #53636d;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.qa-reply-history small {
+  display: block;
+  margin-top: 5px;
+  color: #87949b;
+}
+.qa-change-choice {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 2px 0 14px;
+  padding: 10px 12px;
+  border-radius: 5px;
+  background: #fff8f8;
+  color: #4f606a;
+  font-size: 13px;
+}
+.qa-change-choice[hidden] {
+  display: none;
+}
+.qa-change-choice strong {
+  color: #263942;
+}
+.qa-change-choice label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.qa-detail-return {
+  border: 1px solid #d3182c !important;
+  background: #fff !important;
+  color: #d3182c !important;
+}
+.qa-detail-reuse {
+  border: 1px solid #258bd3 !important;
+  background: #fff !important;
+  color: #258bd3 !important;
+}
+.qa-detail-confirm,
+.qa-detail-coordinate {
+  border: 1px solid #d3182c !important;
+  background: #d3182c !important;
+  color: #fff !important;
+}
+.qa-detail-coordinate {
+  background: #a65b00 !important;
+  border-color: #a65b00 !important;
+}
+.qa-change-hint {
+  color: #87949b;
+  font-size: 12px;
+}
+.qa-change-choice input:disabled + span {
+  color: #87949b;
+}
+.qa-flow-confirm {
+  position: fixed;
+  z-index: 90;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(25, 39, 49, 0.4);
+}
+.qa-flow-confirm.show {
+  display: flex;
+}
+.qa-flow-confirm-card {
+  width: 400px;
+  max-width: calc(100vw - 48px);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 18px 48px rgba(18, 36, 48, 0.3);
+  overflow: hidden;
+}
+.qa-flow-confirm-card header {
+  padding: 18px 20px;
+  border-bottom: 1px solid #e6ecef;
+}
+.qa-flow-confirm-card h3 {
+  margin: 0;
+  color: #263942;
+  font-size: 17px;
+}
+.qa-flow-confirm-card p {
+  margin: 0;
+  padding: 20px;
+  color: #52626b;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.qa-flow-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 0 20px 18px;
+}
+.qa-flow-confirm-actions button {
+  height: 34px;
+  padding: 0 18px;
+  border: 1px solid #d5dfe3;
+  border-radius: 5px;
+  background: #fff;
+  color: #5e6d75;
+  cursor: pointer;
+}
+.qa-flow-confirm-actions button:last-child {
+  border-color: #d3182c;
+  background: #d3182c;
+  color: #fff;
+}
